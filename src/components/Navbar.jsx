@@ -102,13 +102,13 @@ const Navbar = () => {
         </div>
       ) : (
         <div
-          className={`z-50 fixed -top-[113%] left-0 w-full h-full justify-center items-center  bg-white flex flex-col   ${
+          className={`z-50 fixed -top-[100%] left-0 w-full h-full justify-center items-center  bg-white flex flex-col   ${
             menu ? "translate-y-full" : "translate-y-0"
           }  duration-500 transition ease-in-out px-7 lg:px-12`}
         >
-          <div className="h-20 -mt-36 w-full  flex items-center justify-between gap-3">
+          <div className="h-20 -mt-72 w-full  flex items-center justify-between gap-3">
             <div className="flex  flex-col items-center">
-              <img src="./image/logo.svg" className="w-16 md:w-20" alt="logo" />
+              <img src="./image/logo.svg" className="w-12 md:w-20" alt="logo" />
               <h1 className="text-base md:text-xl font-bold">
                 Classy <span className="text-[#ff0000]"> K</span>icks
               </h1>
