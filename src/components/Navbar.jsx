@@ -31,8 +31,8 @@ const Navbar = () => {
         <div
           className={
             color
-              ? "w-full z-50 h-24 fixed top-0 shadow-[0px_1px_5px_#f03030] bg-white  flex items-center justify-between py-2 px-7 mg:px-12 "
-              : "w-full z-50 h-24 fixed top-0 bg-transparent flex items-center justify-between py-2 px-7 mg:px-12"
+              ? "w-full z-50 md:h-24 fixed top-0 shadow-[0px_1px_5px_#f03030] bg-white  flex items-center justify-between py-2 px-7 mg:px-12 "
+              : "w-full z-50 md:h-24 fixed top-0 bg-transparent flex items-center justify-between py-2 px-7 mg:px-12"
           }
         >
           <div className="h-full flex flex-col md:flex-row items-center justify-center md:gap-3">
@@ -102,7 +102,7 @@ const Navbar = () => {
         </div>
       ) : (
         <div
-          className={`z-50 fixed -top-[100%] left-0 w-full h-screen justify-center items-center  bg-white flex flex-col   ${
+          className={`z-50 fixed -top-[113%] left-0 w-full h-full justify-center items-center  bg-white flex flex-col   ${
             menu ? "translate-y-full" : "translate-y-0"
           }  duration-500 transition ease-in-out px-7 lg:px-12`}
         >

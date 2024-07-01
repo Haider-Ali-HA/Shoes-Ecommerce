@@ -5,7 +5,7 @@ import React, { useState } from "react";
 
 const Hero = () => {
   return (
-    <div className="relative px-5  w-full h-screen  flex items-center justify-center ">
+    <div className="relative  px-5  w-full h-screen  flex items-center justify-center ">
       <img
         className="absolute  opacity-70 h-full w-full"
         src="./image/1bg.jpg"
