@@ -15,6 +15,12 @@ const Navbar = () => {
   };
   window.addEventListener("scroll", changeColor);
 
+  const handleLinkClick = (linkName) => {
+    setLinkBorder(linkName);
+    setMenu(false); // Assuming you want to set it to false, not 'false' as a string
+  };
+  
+
   return (
     <>
       {/* 
@@ -38,44 +44,44 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-7 lg:gap-9 text-xl font-baloo font-semibold">
             <Link
               to={"/"}
-              onClick={() => setLinkBorder("Home")}
+              onClick={() => handleLinkClick("Home")}
               className={
                 linkBorder === "Home"
                   ? "cursor-pointer border-b-[.2rem]  border-[#ff0000] "
-                  : "hover:text-[#e60000]"
+                  : "hover:text-[#e60000] text-gray-500"
               }
             >
               <span>Home</span>
             </Link>
             <Link
               to={"products"}
-              onClick={() => setLinkBorder("Product")}
+              onClick={() => handleLinkClick("Product")}
               className={
                 linkBorder === "Product"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
-                  : "hover:text-[#e60000]"
+                  : "hover:text-[#e60000] text-gray-500"
               }
             >
               Product
             </Link>
             <Link
               to={"/about"}
-              onClick={() => setLinkBorder("About")}
+              onClick={() => handleLinkClick("About")}
               className={
                 linkBorder === "About"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
-                  : "hover:text-[#e60000]"
+                  : "hover:text-[#e60000] text-gray-500"
               }
             >
               About
             </Link>
             <Link
               to={"/contact"}
-              onClick={() => setLinkBorder("Contact")}
+              onClick={() => handleLinkClick("Contact")}
               className={
                 linkBorder === "Contact"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
-                  : "hover:text-[#e60000]"
+                  : "hover:text-[#e60000] text-gray-500"
               }
             >
               Contact
@@ -100,7 +106,7 @@ const Navbar = () => {
             menu ? "translate-y-full" : "translate-y-0"
           }  duration-500 transition ease-in-out px-7 lg:px-12`}
         >
-          <div className="h-20 -mt-14 w-full  flex items-center justify-between gap-3">
+          <div className="h-20 -mt-36 w-full  flex items-center justify-between gap-3">
             <div className="flex  flex-col items-center">
               <img src="./image/logo.svg" className="w-16 md:w-20" alt="logo" />
               <h1 className="text-base md:text-xl font-bold">
@@ -112,10 +118,10 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="flex flex-col  items-center gap-9 text-xl font-baloo font-semibold">
+          <div className="flex flex-col  items-center gap-5 md:gap-9 md:text-xl font-baloo font-semibold">
             <Link
               to={"/"}
-              onClick={() => setLinkBorder("Home")}
+              onClick={() => handleLinkClick("Home")}
               className={
                 linkBorder === "Home"
                   ? `  cursor-pointer border-b-[.2rem]  border-[#ff0000] `
@@ -126,7 +132,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"products"}
-              onClick={() => setLinkBorder("Product")}
+              onClick={() => handleLinkClick("Product")}
               className={
                 linkBorder === "Product"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -137,7 +143,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/about"}
-              onClick={() => setLinkBorder("About")}
+              onClick={() => handleLinkClick("About")}
               className={
                 linkBorder === "About"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -148,7 +154,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/contact"}
-              onClick={() => setLinkBorder("Contact")}
+              onClick={() => handleLinkClick("Contact")}
               className={
                 linkBorder === "Contact"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "

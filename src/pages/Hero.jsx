@@ -11,8 +11,7 @@ const Hero = () => {
         src="./image/1bg.jpg"
         alt=""
       />
-      <div className="inset"></div>
-      <div className="relative flex flex-col justify-center items-center sm:items-start  font-poppins font-bold sm:w-3/5 lg:w-2/5 ">
+      <div className="relative flex flex-col justify-center items-center sm:items-start  font-poppins sm:max-lg:pl-11 font-bold sm:w-3/5 lg:w-2/5 ">
         <h1 className="text-3xl md:text-4xl lg:text-7xl">Find Your </h1>
         <h1 className="text-3xl md:text-4xl lg:text-7xl text-[#ff0000]">Perfect Pair </h1>
         <p className="text-xs md:text-base mt-2 text-center sm:text-start">
