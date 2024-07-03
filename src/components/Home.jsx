@@ -1,6 +1,8 @@
 import React from "react";
 import Navbar from "./Navbar";
 import Hero from "../pages/Hero";
+import Services from "../pages/Services";
+import TrustedCompanies from "../pages/TrustedCompanies";
 
 const Home = () => {
   const titleFirst = "Find Your";
@@ -14,6 +16,8 @@ const Home = () => {
         titleSecond={titleSecond}
         description={description}
       />
+      <Services />
+      <TrustedCompanies />
     </div>
   );
 };
