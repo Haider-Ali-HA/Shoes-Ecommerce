@@ -5,15 +5,15 @@ import React, { useState } from "react";
 
 const Hero = ({ titleFirst, titleSecond, description }) => {
   return (
-    <div className="relative  px-5  w-full h-screen  flex items-center justify-center ">
+    <div className="relative top-5  px-5  w-full h-screen  flex items-center justify-center ">
       <img
         className="absolute  opacity-70 h-full w-full"
         src="./image/bg.jpg"
         alt="background image"
       />
       <div className="relative flex flex-col justify-center items-center sm:items-start  font-poppins sm:max-lg:pl-11 font-bold sm:w-3/5 lg:w-2/5 ">
-        <h1 className="text-3xl md:text-4xl lg:text-7xl">{titleFirst} </h1>
-        <span className="text-3xl md:text-4xl lg:text-7xl text-[#ff0000]">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl">{titleFirst} </h1>
+        <span className="text-3xl md:text-4xl lg:text-6xl text-[#ff0000]">
           {titleSecond}
         </span>
         <p className="text-xs md:text-base mt-2 text-center sm:text-start">

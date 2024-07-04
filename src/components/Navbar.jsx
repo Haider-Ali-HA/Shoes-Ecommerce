@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { CgClose, CgMenu, CgMenuRightAlt } from "react-icons/cg";
+import React, { useEffect, useState } from "react";
+import { CgClose, CgMenu } from "react-icons/cg";
 import { IoCartOutline } from "react-icons/io5";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 const Navbar = () => {
-  const [linkBorder, setLinkBorder] = useState("Home");
   const [menu, setMenu] = useState(false);
+  const [linkBorder, setLinkBorder] = useState("Home");
   const [color, setColor] = useState(false);
+
+  const location = useLocation();
+
   const changeColor = () => {
     if (window.scrollY >= 10) {
       setColor(true);
@@ -19,7 +22,24 @@ const Navbar = () => {
     setLinkBorder(linkName);
     setMenu(false); // Assuming you want to set it to false, not 'false' as a string
   };
+
   
+  const pathToLinkName = {
+    "/": "Home",
+    "/products": "Product",
+    "/about": "About",
+    "/contact": "Contact",
+  };
+
+  const currentPath = location.pathname; // Extract the path
+
+  const linkName = pathToLinkName[currentPath]; // Map path to link name
+
+  useEffect(() => {
+    if (linkName) {
+      setLinkBorder(linkName);
+    }
+  }, [currentPath]); // Run this effect when the path changes
 
   return (
     <>
