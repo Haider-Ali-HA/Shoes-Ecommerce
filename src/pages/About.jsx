@@ -1,5 +1,5 @@
 import React from "react";
-import Hero from "../pages/Hero";
+import Hero from "../common/Hero";
 
 const About = () => {
   const titleFirst = "Elevate Your Style";

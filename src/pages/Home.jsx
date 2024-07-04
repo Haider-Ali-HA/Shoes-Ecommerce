@@ -1,8 +1,7 @@
 import React from "react";
-import Navbar from "./Navbar";
-import Hero from "../pages/Hero";
-import Services from "../pages/Services";
-import TrustedCompanies from "../pages/TrustedCompanies";
+import Hero from "../common/Hero";
+import Services from "../components/Services";
+import TrustedCompanies from "../components/TrustedCompanies";
 
 const Home = () => {
   const titleFirst = "Find Your";

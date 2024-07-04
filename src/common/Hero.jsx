@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-// import redImage from './image/redShoesHero.svg'
-// import greenImage from './image/greenShoesHero.svg'
-// import blueImage from './image/blueShoesHero.svg'
 
 const Hero = ({ titleFirst, titleSecond, description }) => {
   return (
