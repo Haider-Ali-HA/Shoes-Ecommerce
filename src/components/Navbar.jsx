@@ -23,7 +23,6 @@ const Navbar = () => {
     setMenu(false); // Assuming you want to set it to false, not 'false' as a string
   };
 
-  
   const pathToLinkName = {
     "/": "Home",
     "/products": "Product",
@@ -61,7 +60,7 @@ const Navbar = () => {
               Classy <span className="text-[#ff0000]"> K</span>icks
             </h1>
           </div>
-          <div className="hidden md:flex items-center gap-7 lg:gap-9 text-xl font-baloo font-semibold">
+          <div className="hidden md:flex items-center gap-7 lg:gap-9 text-lg font-baloo font-semibold">
             <Link
               to={"/"}
               onClick={() => handleLinkClick("Home")}
@@ -106,9 +105,14 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <button className="bg-[#f03030] border border-[#f03030] hover:bg-transparent hover:text-black rounded-full w-24 h-10 text-white transition-all duration-500">
+            {/* <button className="bg-[#f03030] border border-[#f03030] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full w-24 h-10 text-white transition-all duration-500">
               Login
-            </button>
+            </button> */}
+            <div className="text-base font-semibold my-4">
+              <button className="bg-[#f03030] border border-[#f03030]  text-sm md:text-base hover:bg-transparent hover:text-black hover:border-[#f03030]  rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
+                Login
+              </button>
+            </div>
             <div className="flex relative">
               <IoCartOutline className="text-2xl " />
               <span className="bg-[#f03030] text-white absolute -top-4 left-4 rounded-full flex items-center justify-center text-base h-6 w-6">
