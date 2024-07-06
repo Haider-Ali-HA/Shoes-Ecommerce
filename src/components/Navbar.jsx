@@ -63,7 +63,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-7 lg:gap-9 text-lg font-baloo font-semibold">
             <Link
               to={"/"}
-              onClick={() => handleLinkClick("Home")}
+              
               className={
                 linkBorder === "Home"
                   ? "cursor-pointer border-b-[.2rem]  border-[#ff0000] "
@@ -74,7 +74,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"products"}
-              onClick={() => handleLinkClick("Product")}
+              
               className={
                 linkBorder === "Product"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -85,7 +85,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/about"}
-              onClick={() => handleLinkClick("About")}
+              
               className={
                 linkBorder === "About"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -96,7 +96,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/contact"}
-              onClick={() => handleLinkClick("Contact")}
+              
               className={
                 linkBorder === "Contact"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
