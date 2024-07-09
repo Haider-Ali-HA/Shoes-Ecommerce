@@ -1,30 +1,41 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import fetchDataFromApi from "../utils/api";
+import React, {
+  createContext,
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+} from "react";
+import ProductsData from "../data/ProductData";
+import reducer from "../reducer/ProductReducer";
+
+const initialState = {
+  isLoading: false,
+  isError: false,
+  products: [],
+  featureProducts: [],
+};
 
 const Product = createContext();
 
 const ProductProvider = ({ children }) => {
-    const [products, setProducts] = useState([]);
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const productsData=ProductsData;
+//   console.log("products", productsData);
+  useEffect(() => {
+    dispatch({ type: "SET_LOADER" });
+    try {
+      dispatch({ type: "GET_FEATURE_PRODUCTS", payload: productsData });
+    } catch (error) {
+      dispatch({ type: "GET_FEATURE_PRODUCTS_ERROR" });
+    }
+    // This empty dependency array means this effect runs only once on mount
+  }, []);
 
-    useEffect(() => {
-        // const fetchProducts = async () => {
-        //     try {
-        //         const data = await fetchDataFromApi('your-endpoint'); // Replace 'your-endpoint' with the actual endpoint
-        //         setProducts(data);
-        //     } catch (error) {
-        //         console.error("Error fetching products:", error);
-        //     }
-        // };
-
-        // fetchProducts();
-    }, []);
-
-    return <Product.Provider value={products}>{children}</Product.Provider>;
+  return <Product.Provider value={{ ...state }}>{children}</Product.Provider>;
 };
 
-// custom hook
 const useProductContext = () => {
-    return useContext(Product);
+  return useContext(Product);
 };
 
 export { ProductProvider, Product, useProductContext };

@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../common/Hero";
 import Services from "../components/Services";
 import TrustedCompanies from "../components/TrustedCompanies";
+import FeatureProducts from "../components/FeatureProducts";
 
 const Home = () => {
   const titleFirst = "Find Your";
@@ -15,6 +16,7 @@ const Home = () => {
         titleSecond={titleSecond}
         description={description}
       />
+      <FeatureProducts />
       <Services />
       <TrustedCompanies />
     </div>
