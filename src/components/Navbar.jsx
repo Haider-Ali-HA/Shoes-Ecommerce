@@ -55,7 +55,7 @@ const Navbar = () => {
           }
         >
           <div className="h-full flex flex-col md:flex-row items-center justify-center md:gap-3">
-            <img src="./image/logo.svg" className="w-12 md:w-20" alt="logo" />
+            <img src="/image/logo.svg" className="w-12 md:w-20" alt="logo" />
             <h1 className="text-sm md:text-xl font-bold">
               Classy <span className="text-[#ff0000]"> K</span>icks
             </h1>

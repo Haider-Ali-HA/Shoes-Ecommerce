@@ -6,7 +6,7 @@ import { TbTruckDelivery } from "react-icons/tb";
 
 const Services = () => {
   return (
-    <div className="w-full h-full px-5 mb-10 py-10 flex flex-col md:flex-row  items-center justify-center gap-3 md:gap-5">
+    <div className="w-full h-full px-5  md:my-20 py-10 flex flex-col md:flex-row  items-center justify-center gap-3 md:gap-5">
       <div className="hover:bg-[#ff9b9b] text-xl font-poppins  flex-col gap-3 md:text-2xl h-[13rem] md:h-[17rem] w-full md:w-[25rem] rounded-lg flex items-center justify-center transition-all duration-4500 cursor-pointer bg-[#ebebeb] shadow-[0px_0px_10px_#ebebeb] text-[#d11010]">
         <span className="bg-white rounded-full h-12 w-12 flex items-center justify-center">
           <TbTruckDelivery />

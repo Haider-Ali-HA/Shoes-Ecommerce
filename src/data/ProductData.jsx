@@ -1,54 +1,55 @@
 const ProductsData = [
     {
         id: 1,
-        name: "Product 1",
+        title: "Sneaker",
         price: 100,
         company: "Company 1",
-        category: "Category 1",
+        category: "Stylish",
         featured: true,
         color:[
             "red",
             "blue",
             "green"
         ],
-        image: "https://via.placeholder.com/150",
+        image: "./image/shoes1.jpg",
         description: "Product 1 description",
+        
 
     },
     {
         id: 2,
-        name: "Product 2",
+        title: "Joker",
         price: 200,
         company: "Company 1",
-        category: "Category 1",
+        category: "Sports",
         featured: true,
         color:[
             "red",
             "blue",
             "green"
         ],
-        image: "https://via.placeholder.com/150",
+        image: "./image/shoes2.jpg",
         description: "Product 2 description",
 
     },
     {
         id: 3,
-        name: "Product 3",
+        title: "Gym Shoes",
         price: 300,
         company: "Company 1",
-        category: "Category 1",
+        category: "Gym",
         featured: true,
         color:[
             "red",
             "blue",
             "green"
         ],
-        image: "https://via.placeholder.com/150",
+        image: "./image/shoes3.jpeg",
         description: "Product 3 description",
     },
     {
         id: 4,
-        name: "Product 4",
+        title: "Product 4",
         price: 400,
         company: "Company 1",
         category: "Category 1",
@@ -58,7 +59,7 @@ const ProductsData = [
             "blue",
             "green"
         ],
-        image: "https://via.placeholder.com/150",
+        image: "./image/shoes1.jpg",
         description: "Product 4 description",
 
         
@@ -67,3 +68,5 @@ const ProductsData = [
 ]
 
 export default ProductsData;
+
+// category : formal, boots, sneakers, loafer sports

@@ -12,10 +12,10 @@ const Footer = () => {
   console.log(name);
   return (
     <>
-      <div className="w-full h-full bg-[#000000] flex flex-col  items-center  px-5 py-20 gap-4 font-poppins text-white mt-16">
+      <div className="w-full h-full bg-[#000000] flex flex-col  items-center  px-5 py-20 gap-4 font-poppins text-white">
         <div className="flex flex-col md:flex-row   gap-12 md:gap-6 justify-center items-center ">
           <div className=" sm:w-2/3  md:w-[27rem]  ">
-            <h1 className="text-center md:text-start text-lg md:text-2xl font-semibold md:font-bold text-[#f03030] mb-4">
+            <h1 className="text-center md:text-start text-xl md:text-2xl font-bold text-[#f03030] mb-4">
               Classy Kicks
             </h1>
             <p className="text-center md:text-start text-xs md:text-base text-gray-400">

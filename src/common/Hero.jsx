@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Hero = ({ titleFirst, titleSecond, description }) => {
   return (
     <div className="relative top-5  px-5  w-full h-screen  flex items-center justify-center ">
       <img
         className="absolute  opacity-70 h-full w-full"
-        src="./image/bg.jpg"
+        src="/image/bg.jpg"
         alt="background image"
       />
       <div className="relative flex flex-col justify-center items-center sm:items-start  font-poppins sm:max-lg:pl-11 font-bold sm:w-3/5 lg:w-2/5 ">
@@ -25,11 +25,10 @@ const Hero = ({ titleFirst, titleSecond, description }) => {
       <div className=" relative hidden sm:flex items-center justify-center ">
         <img
           className="w-56 md:w-3/5 lg:w-2/3"
-          src="./image/redShoesHero.svg"
+          src="/image/redShoesHero.svg"
           alt="hero section image"
         />
-        {/* <img src="./image/greenShoesHero.svg" alt="hero section image" /> */}
-        {/* <img src="./image/blueShoesHero.svg" alt="hero section image" /> */}
+       
       </div>
     </div>
   );

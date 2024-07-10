@@ -2,7 +2,7 @@ import React from 'react'
 
 const SingleProduct = () => {
   return (
-    <div>
+    <div className='mt-20'>
       single page
     </div>
   )

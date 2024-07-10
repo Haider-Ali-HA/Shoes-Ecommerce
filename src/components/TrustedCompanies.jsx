@@ -2,7 +2,7 @@ import React from "react";
 
 const TrustedCompanies = () => {
   return (
-    <div className="bg-[#ebebeb] mb-10 h-full w-full px-5 py-10 flex flex-col items-center gap-11">
+    <div className="bg-[#ffffff] md:my-10 h-full w-full px-5 py-10 flex flex-col items-center gap-11">
       <h1 className="text-lg md:text-2xl text-center font-semibold font-poppins ">
         Trusted By Many Companies
       </h1>
