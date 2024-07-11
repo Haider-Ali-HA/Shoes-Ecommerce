@@ -1,6 +1,7 @@
 import React from "react";
 import { useProductContext } from "../context/ProductContext";
 import { useNavigate } from "react-router-dom";
+import ConvertCurrency from "../components/CurrencyConvert";
 
 const FeatureProducts = () => {
   const { isLoading, featureProducts } = useProductContext();
@@ -15,20 +16,20 @@ const FeatureProducts = () => {
       {isLoading ? (
         <h1 className="text-center text-3xl text-black">Loading...</h1>
       ) : (
-        <section className="text-gray-900 px-5 py-24 body-font md:my-10 bg-[#f3f3f3]">
+        <section className="text-gray-900 flex flex-col items-center px-5 py-24 md:my-10 bg-[#f3f3f3]">
           <div className="flex items-center  flex-col   mb-10  ">
             <h1 className="text-lg md:text-2xl text-center font-semibold font-poppins ">
               Our Feature Services
             </h1>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-3 -m-4">
+          <div className="flex w-full  xl:w-3/4 flex-wrap gap-5  items-center justify-center  -m-4">
             {featureProducts.map((product) => {
               const { id, title, price, image, category } = product;
               return (
                 <div
                   onClick={() => handleProductClick(id)}
                   key={id}
-                  className="font-poppins cursor-pointer md:w-72 lg:w-[20rem] py-3 md:p-4 w-72"
+                  className="font-poppins  cursor-pointer md:w-72 lg:w-[20rem] py-3 md:p-4 w-72"
                 >
                   <div className=" relative h-48 rounded overflow-hidden group">
                     <img
@@ -45,7 +46,7 @@ const FeatureProducts = () => {
                       {title}
                     </h3>
                     <h2 className="text-gray-900 title-font text-sm md:text-lg font-medium">
-                      ${price}
+                      {<ConvertCurrency price={price} />}
                     </h2>
                   </div>
                 </div>

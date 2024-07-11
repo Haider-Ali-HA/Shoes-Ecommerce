@@ -1,10 +1,4 @@
-import React, {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import React, { createContext, useContext, useEffect, useReducer } from "react";
 import ProductsData from "../data/ProductData";
 import reducer from "../reducer/ProductReducer";
 
@@ -13,25 +7,51 @@ const initialState = {
   isError: false,
   products: [],
   featureProducts: [],
+  isSingleLoading: false,
+  singleProduct: {},
 };
 
 const Product = createContext();
 
 const ProductProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const productsData=ProductsData;
-//   console.log("products", productsData);
-  useEffect(() => {
+
+  //GET SINGLE PRODUCT DATA
+  const getSingleProduct = (id) => {
+    dispatch({ type: "SET_SINGLE_LOADER" });
+    const productId = parseInt(id, 10);
+    const singleProduct = ProductsData.find(
+      (product) => product.id === productId
+    );
+
+    try {
+      dispatch({ type: "SET_SINGLE_PRODUCT", payload: singleProduct });
+    } catch (error) {
+      dispatch({ type: "SET_SINGLE_ERROR" });
+    }
+  };
+
+  //GET ALL PRODUCTS DATA
+  const getALLProducts = () => {
     dispatch({ type: "SET_LOADER" });
+    const productsData = ProductsData;
     try {
       dispatch({ type: "GET_FEATURE_PRODUCTS", payload: productsData });
     } catch (error) {
       dispatch({ type: "GET_FEATURE_PRODUCTS_ERROR" });
     }
+  };
+
+  useEffect(() => {
+    getALLProducts();
     // This empty dependency array means this effect runs only once on mount
   }, []);
 
-  return <Product.Provider value={{ ...state }}>{children}</Product.Provider>;
+  return (
+    <Product.Provider value={{ ...state, getSingleProduct }}>
+      {children}
+    </Product.Provider>
+  );
 };
 
 const useProductContext = () => {

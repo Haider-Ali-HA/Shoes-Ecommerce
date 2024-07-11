@@ -5,11 +5,9 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { useProductContext } from "../context/ProductContext";
 
 const Footer = () => {
-  const name = useProductContext();
-  console.log(name);
+
   return (
     <>
       <div className="w-full h-full bg-[#000000] flex flex-col  items-center  px-5 py-20 gap-4 font-poppins text-white">

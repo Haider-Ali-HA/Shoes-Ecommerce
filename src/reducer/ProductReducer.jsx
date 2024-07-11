@@ -9,24 +9,39 @@ const ProductReducer = (state, action) => {
       const featureProductsData = action.payload.filter((product) => {
         return product.featured === true;
       });
-      console.log("feature products",featureProductsData);
       return {
         ...state,
         isLoading: false,
         featureProducts: featureProductsData,
         products: action.payload,
       };
-      break;
     case "GET_FEATURE_PRODUCTS_ERROR":
       return {
         ...state,
         isLoading: false,
         isError: true,
       };
-      break;
+    case "SET_SINGLE_LOADER":
+      return {
+        ...state,
+        isSingleLoading: true,
+      };
+    case "SET_SINGLE_PRODUCT":
+      return {
+        ...state,
+        isSingleLoading: false,
+        singleProduct: action.payload,
+        
+      };
+      
+    case "SET_SINGLE_ERROR":
+      return {
+        ...state,
+        isSingleLoading: false,
+        isError: true,
+      };
     default:
       return state;
-      break;
   }
 };
 

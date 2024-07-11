@@ -132,7 +132,7 @@ const Navbar = () => {
         >
           <div className="h-20 -mt-72 w-full  flex items-center justify-between gap-3">
             <div className="flex  flex-col items-center">
-              <img src="./image/logo.svg" className="w-12 md:w-20" alt="logo" />
+              <img src="/image/logo.svg" className="w-12 md:w-20" alt="logo" />
               <h1 className="text-base md:text-xl font-bold">
                 Classy <span className="text-[#ff0000]"> K</span>icks
               </h1>
@@ -145,7 +145,6 @@ const Navbar = () => {
           <div className="flex flex-col  items-center gap-5 md:gap-9 md:text-xl font-baloo font-semibold">
             <Link
               to={"/"}
-              onClick={() => handleLinkClick("Home")}
               className={
                 linkBorder === "Home"
                   ? `  cursor-pointer border-b-[.2rem]  border-[#ff0000] `
@@ -156,7 +155,6 @@ const Navbar = () => {
             </Link>
             <Link
               to={"products"}
-              onClick={() => handleLinkClick("Product")}
               className={
                 linkBorder === "Product"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -167,7 +165,6 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/about"}
-              onClick={() => handleLinkClick("About")}
               className={
                 linkBorder === "About"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -178,7 +175,6 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/contact"}
-              onClick={() => handleLinkClick("Contact")}
               className={
                 linkBorder === "Contact"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -199,8 +195,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-
-      {/* Mobile Navbar */}
     </>
   );
 };
