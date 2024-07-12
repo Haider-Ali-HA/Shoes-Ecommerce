@@ -14,7 +14,9 @@ const FeatureProducts = () => {
   return (
     <>
       {isLoading ? (
-        <h1 className="text-center text-3xl text-black">Loading...</h1>
+        <div className="flex justify-center items-center h-96">
+          <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-red-500"></div>
+        </div>
       ) : (
         <section className="text-gray-900 flex flex-col items-center px-5 py-24 md:my-10 bg-[#f3f3f3]">
           <div className="flex items-center  flex-col   mb-10  ">
