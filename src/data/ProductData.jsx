@@ -9,6 +9,7 @@ const ProductsData = [
     color: ["red", "blue", "green"],
     image: "./image/shoes1.jpg",
     description: "Product 1 description",
+    reviews:100,
   },
   {
     id: 2,
@@ -20,6 +21,7 @@ const ProductsData = [
     color: ["red", "blue", "green"],
     image: "./image/shoes2.jpg",
     description: "Product 2 description",
+    reviews:100,
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const ProductsData = [
     color: ["red", "blue", "green"],
     image: "./image/shoes3.jpeg",
     description: "Product 3 description",
+    reviews:100,
   },
   {
     id: 4,
@@ -42,6 +45,7 @@ const ProductsData = [
     color: ["red", "blue", "green"],
     image: "./image/shoes1.jpg",
     description: "Product 4 description",
+    reviews:100,
   },
   {
     id: 5,

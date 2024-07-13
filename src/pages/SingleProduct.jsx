@@ -45,36 +45,51 @@ const SingleProduct = () => {
           </div>
           <div>
             <h2>{title}</h2>
-            <p>ratings</p>
-            <p>MRP:{
-              <CurrencyConvert price={price+2500} />
-              }</p>
-            <p>Deal of the Day :26723</p>
+            <div className="flex items-center gap-4">
+
+            <p>stars{stars}</p>
+            <p>({reviews} customer reviews)</p>
+          
+            </div>
             <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic
-              perferendis deleniti est fugit consequuntur. Magni rerum
-              architecto, fugiat velit blanditiis, aperiam dicta numquam libero
-              dolores dolor molestias sit provident dolore?
+              MRP:
+              <span className="line-through">{<CurrencyConvert price={price + 2500} />}</span>
             </p>
-            <div>
-              <span className="bg-white rounded-full h-12 w-12 flex items-center justify-center">
-                <TbTruckDelivery />
+            <p>Deal of the Day :
+              <span>{<CurrencyConvert price={price} />}</span>
+            </p>
+            <p>
+           {description}
+            </p>
+            <div className="flex gap-11 items-center ">
+              <span className="bg-white rounded-full  flex flex-col gap-2 items-center justify-center">
+                <TbTruckDelivery  className="text-2xl" />
+                <p>Free Delivery</p>
               </span>
-              <span className="bg-white rounded-full h-12 w-12 flex items-center justify-center">
-                <MdSecurity />
+              <span className="bg-white rounded-full  flex flex-col gap-2 items-center justify-center">
+                <MdSecurity  className="text-2xl" />
+                <p>30 Days Replacement</p>
               </span>
-              <span className="bg-white rounded-full h-12 w-12 flex items-center justify-center">
-                <GiReceiveMoney />
+              <span className="bg-white rounded-full  flex flex-col gap-2 items-center justify-center">
+                <GiReceiveMoney  className="text-2xl" />
+                <p>Cash on Delivery</p>
               </span>
-              <span className="bg-white rounded-full h-12 w-12 flex items-center justify-center">
-                <RiSecurePaymentLine />
+              <span className="bg-white rounded-full  flex flex-col gap-2 items-center justify-center">
+                <RiSecurePaymentLine  className="text-2xl" />
+                <p>Secure Payment</p>
               </span>
             </div>
-            <hr className="w-full h-2" />
+            <hr className="w-full h-2 my-2" />
             <div>
-              <p>Available:in stock</p>
-              <p>id:haider</p>
-              <p>Brand:Lenovo</p>
+              <p>Available:
+                <span>{stock}</span>
+              </p>
+              <p>id:
+                <span>{id}</span>
+              </p>
+              <p>Brand:
+                <span>{company}</span>
+              </p>
             </div>
             <hr className="w-full h-4" />
             <div>
