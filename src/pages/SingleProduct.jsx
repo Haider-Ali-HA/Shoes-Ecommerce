@@ -7,6 +7,7 @@ import { useParams } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
 import PaginationSingleProduct from "../components/PaginationSingleProduct";
 import CurrencyConvert from "../components/CurrencyConvert";
+import Stars from "../components/Stars";
 
 const SingleProduct = () => {
   const { getSingleProduct, isSingleLoading, singleProduct } =
@@ -20,6 +21,7 @@ const SingleProduct = () => {
     price,
     description,
     category,
+    color,
     multipleImage,
     stock,
     stars,
@@ -27,6 +29,8 @@ const SingleProduct = () => {
     image,
   } = singleProduct;
   const [singleImage, setSingleImage] = useState(image);
+
+  const [productColor, setProductColor] = useState();
 
   const handleImageClick = (imageUrl, index) => {
     setSingleImage(imageUrl); // Update the main image displayed
@@ -57,7 +61,7 @@ const SingleProduct = () => {
                 {multipleImage?.map((imageUrl, index) => {
                   return (
                     <img
-                      onClick={() => handleImageClick(imageUrl.img, index)} // Pass index to handleImageClick
+                      onClick={() => handleImageClick(imageUrl.img, index)}
                       key={index}
                       src={imageUrl.img}
                       alt={`${title} ${index + 1}`}
@@ -65,7 +69,7 @@ const SingleProduct = () => {
                         index === activeImageIndex
                           ? "border-4 border-red-500"
                           : ""
-                      }`} // Step 3: Conditional styling
+                      }`}
                     />
                   );
                 })}
@@ -77,8 +81,10 @@ const SingleProduct = () => {
             <div className="border border-blue-500 w-2/4">
               <h2 className="text-4xl font-semibold mb-4">{title}</h2>
               <div className="flex flex-col gap-4">
-                <p>
-                  <span>stars{stars}</span>
+                <p className="flex items-center gap-2 ">
+                  <span>
+                    <Stars stars={stars} />
+                  </span>
                   <span>({reviews} customer reviews)</span>
                 </p>
                 <p>
@@ -87,10 +93,10 @@ const SingleProduct = () => {
                     {<CurrencyConvert price={price + 2500} />}
                   </span>
                 </p>
-                <p className="text-[#ff4343]">
+                <p className="text-[#ff4343] font-semibold">
                   Deal of the Day :
                   <span
-                    className="font-semibold ml-2
+                    className=" ml-2
                   "
                   >
                     {<CurrencyConvert price={price} />}
@@ -142,12 +148,19 @@ const SingleProduct = () => {
                 </p>
               </div>
               <hr className="w-full h-4" />
-              <div>
+              <div className="flex">
                 <h3>Colors:</h3>
-                <span className="bg-red-500 h-8 w-8 rounded-full"></span>
-                <span className="bg-blue-500 h-8 w-8 rounded-full"></span>
-                <span className="bg-green-500 h-8 w-8 rounded-full"></span>
-                <span className="bg-yellow-500 h-8 w-8 rounded-full"></span>
+                {color?.map((color, index) => {
+                  return (
+                    <p
+                      key={index}
+                      className={`w-6 h-6 rounded-full  mx-2`}
+                      style={{ backgroundColor: color }}
+                    >
+                 
+                    </p>
+                  );
+                })}
               </div>
               <div>
                 <input type="number" className="bg-gray-100 p-2 h-7 w-24" />

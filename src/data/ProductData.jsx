@@ -6,7 +6,9 @@ const ProductsData = [
     company: "Company 1",
     category: "Stylish",
     featured: true,
-    color: ["red", "blue", "green"],
+    color: [
+      "#F50202","#39F502","#0244F5"
+    ],
     image: "/image/shoes1.jpg",
     description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
     multipleImage: [
@@ -24,7 +26,7 @@ const ProductsData = [
     shipping: true,
     stock: 10,
     reviews: 100,
-    stars: 4,
+    stars: 1.5,
   },
   {
     id: 2,
@@ -33,7 +35,9 @@ const ProductsData = [
     company: "Company 1",
     category: "Sports",
     featured: true,
-    color: ["red", "blue", "green"],
+    color: [
+      "#F50202","#39F502","#0244F5"
+    ],
     image: "/image/shoes2.jpg",
     description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
     multipleImage: [
@@ -57,7 +61,7 @@ const ProductsData = [
     shipping: true,
     stock: 10,
     reviews: 100,
-    stars: 4,
+    stars: 3,
   },
   {
     id: 3,
@@ -66,7 +70,9 @@ const ProductsData = [
     company: "Company 1",
     category: "Gym",
     featured: true,
-    color: ["red", "blue", "green"],
+    color: [
+      "#F50202","#39F502","#0244F5"
+    ],
     image: "/image/shoes3.jpeg",
     description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
     multipleImage: [
@@ -99,7 +105,9 @@ const ProductsData = [
     company: "Company 1",
     category: "Category 1",
     featured: false,
-    color: ["red", "blue", "green"],
+    color: [
+      "#F50202","#39F502","#0244F5"
+    ],
     image: "/image/shoes1.jpg",
     description: "lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.",
     multipleImage: [
