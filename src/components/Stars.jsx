@@ -7,11 +7,11 @@ const Stars = ({ stars }) => {
   for (let i = 0; i <= 4; i++) {
     AllStar.push(
       stars >= i + 1 ? (
-        <FaStar />
+      <FaStar key={i} />
       ) : stars >= i + 0.5 ? (
-        <FaStarHalfAlt />
+      <FaStarHalfAlt key={i} />
       ) : (
-        <FaRegStar />
+      <FaRegStar key={i} />
       )
     );
   }
