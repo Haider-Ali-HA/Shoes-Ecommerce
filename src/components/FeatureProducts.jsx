@@ -18,8 +18,11 @@ const FeatureProducts = () => {
               Our Feature Services
             </h1>
           </div>
+          <div className="w-full">
+
          
            <Product productData={featureProducts} />
+          </div>
          
         </section>
       )}

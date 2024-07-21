@@ -79,8 +79,8 @@ const SingleProduct = () => {
       ) : (
         <>
           <div className="flex  flex-col lg:flex-row gap-10 items-center justify-center mb-20 px-10">
-            <div className="flex flex-col-reverse  md:flex-row gap-5 w-ful lg:w-[33rem]">
-              <div className="flex md:flex-col items-center justify-center  gap-5 rounded   ">
+            <div className="flex flex-col-reverse  lg:flex-row gap-5    h-full">
+              <div className="flex lg:flex-col items-center justify-center  gap-5 rounded   ">
                 {multipleImage?.map((imageUrl, index) => {
                   return (
                     <img
@@ -88,9 +88,9 @@ const SingleProduct = () => {
                       key={index}
                       src={imageUrl.img}
                       alt={`${title} ${index + 1}`}
-                      className={`w-16 md:w-32 rounded cursor-pointer ${
+                      className={`w-16 sm:w-32 rounded cursor-pointer ${
                         index === activeImageIndex
-                          ? "border-2 border-red-500 shadow-2xl"
+                          ? "shadow-2xl"
                           : ""
                       }`}
                     />
@@ -98,11 +98,17 @@ const SingleProduct = () => {
                 })}
               </div>
               <div className=" flex  items-center justify-center ">
-                <img className="w-5/6 md:w-[27rem] shadow  " src={singleImage} alt="" />
+                <img
+                  className="w-5/6 sm:w-[29rem] shadow  "
+                  src={singleImage}
+                  alt=""
+                />
               </div>
             </div>
             <div className="w-full lg:w-1/2 ">
-              <h2 className="text-3xl md:text-4xl font-semibold mb-4">{title}</h2>
+              <h2 className="text-3xl md:text-4xl font-semibold mb-4">
+                {title}
+              </h2>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-2  text-sm md:text-base ">
                   <span>
@@ -133,25 +139,33 @@ const SingleProduct = () => {
                   <span className="bg-gray-100 rounded-full p-2">
                     <TbTruckDelivery className="text-xl md:text-2xl" />
                   </span>
-                  <p className=" text-xs md:text-base text-center">Free Delivery</p>
+                  <p className=" text-xs md:text-base text-center">
+                    Free Delivery
+                  </p>
                 </span>
                 <span className="flex flex-col gap-2 items-center justify-center">
                   <span className="bg-gray-100 rounded-full p-2">
                     <MdSecurity className="text-xl md:text-2xl" />
                   </span>
-                  <p className=" text-xs md:text-base text-center">30 Days Replacement</p>
+                  <p className=" text-xs md:text-base text-center">
+                    30 Days Replacement
+                  </p>
                 </span>
                 <span className="flex flex-col gap-2 items-center justify-center">
                   <span className="bg-gray-100 rounded-full p-2">
                     <GiReceiveMoney className="text-xl md:text-2xl" />
                   </span>
-                  <p className=" text-xs md:text-base text-center">Cash on Delivery</p>
+                  <p className=" text-xs md:text-base text-center">
+                    Cash on Delivery
+                  </p>
                 </span>
                 <span className="flex flex-col gap-2 items-center justify-center">
                   <span className="bg-gray-100 rounded-full p-2">
                     <RiSecurePaymentLine className="text-xl md:text-2xl" />
                   </span>
-                  <p className=" text-xs md:text-base text-center">Secure Payment</p>
+                  <p className=" text-xs md:text-base text-center">
+                    Secure Payment
+                  </p>
                 </span>
               </div>
               <hr className=" w-full h-2 mb-2" />
@@ -179,9 +193,9 @@ const SingleProduct = () => {
                   return (
                     <p
                       key={index}
-                      className={`h-4 w-4 md:w-6 md:h-6 rounded-full font-bold  hover:opacity-100 flex items-center justify-center text-4xl text-white mx-2 ${
-                        productColorIndex === index ? "opacity-full" : "opacity-30"
-                      }`} // Apply conditional styling
+                      className={`h-4 w-4 md:w-6 md:h-6 rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-2 
+                      
+                      `} // Apply conditional styling
                       style={{ backgroundColor: color }}
                       onClick={() => handleColorClick(index)} // Update the click handler
                     >

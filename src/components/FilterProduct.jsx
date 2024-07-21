@@ -3,7 +3,7 @@ import React from 'react'
 const FilterProduct = () => {
   return (
     <div>
-      filter product
+      {/* filter product */}
     </div>
   )
 }

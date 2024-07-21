@@ -63,7 +63,7 @@ const Navbar = () => {
           <div className="hidden md:flex items-center gap-7 lg:gap-9 text-lg font-baloo font-semibold">
             <Link
               to={"/"}
-              
+              onClick={() => setMenu(false)}
               className={
                 linkBorder === "Home"
                   ? "cursor-pointer border-b-[.2rem]  border-[#ff0000] "
@@ -74,7 +74,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"products"}
-              
+               onClick={() => setMenu(false)}
               className={
                 linkBorder === "Product"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -85,7 +85,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/about"}
-              
+               onClick={() => setMenu(false)}
               className={
                 linkBorder === "About"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -96,7 +96,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/contact"}
-              
+               onClick={() => setMenu(false)}
               className={
                 linkBorder === "Contact"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -145,6 +145,7 @@ const Navbar = () => {
           <div className="flex flex-col  items-center gap-5 md:gap-9 md:text-xl font-baloo font-semibold">
             <Link
               to={"/"}
+              onClick={() => setMenu(false)}
               className={
                 linkBorder === "Home"
                   ? `  cursor-pointer border-b-[.2rem]  border-[#ff0000] `
@@ -155,6 +156,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"products"}
+              onClick={() => setMenu(false)}
               className={
                 linkBorder === "Product"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -164,6 +166,7 @@ const Navbar = () => {
               Product
             </Link>
             <Link
+             onClick={() => setMenu(false)}
               to={"/about"}
               className={
                 linkBorder === "About"
@@ -174,6 +177,7 @@ const Navbar = () => {
               About
             </Link>
             <Link
+             onClick={() => setMenu(false)}
               to={"/contact"}
               className={
                 linkBorder === "Contact"
