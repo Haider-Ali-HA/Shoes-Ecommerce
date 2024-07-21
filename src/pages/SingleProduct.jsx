@@ -78,9 +78,9 @@ const SingleProduct = () => {
         </div>
       ) : (
         <>
-          <div className="flex flex-col md:flex-row gap-10 items-center justify-center md:my-20">
-            <div className="flex flex-col-reverse border border-black md:flex-row gap-5 w-ful md:w-[29rem] lg:w-[33rem]">
-              <div className="flex md:flex-col items-center justify-center border gap-5 rounded  border-red-500 ">
+          <div className="flex  flex-col lg:flex-row gap-10 items-center justify-center mb-20 px-10">
+            <div className="flex flex-col-reverse  md:flex-row gap-5 w-ful lg:w-[33rem]">
+              <div className="flex md:flex-col items-center justify-center  gap-5 rounded   ">
                 {multipleImage?.map((imageUrl, index) => {
                   return (
                     <img
@@ -90,18 +90,18 @@ const SingleProduct = () => {
                       alt={`${title} ${index + 1}`}
                       className={`w-16 md:w-32 rounded cursor-pointer ${
                         index === activeImageIndex
-                          ? "border-4 border-red-500"
+                          ? "border-2 border-red-500 shadow-2xl"
                           : ""
                       }`}
                     />
                   );
                 })}
               </div>
-              <div className=" flex  items-center justify-center border border-black">
-                <img className="w-5/6 md:w-[27rem] border border-black" src={singleImage} alt="" />
+              <div className=" flex  items-center justify-center ">
+                <img className="w-5/6 md:w-[27rem] shadow  " src={singleImage} alt="" />
               </div>
             </div>
-            <div className="w-full md:w-1/3 md:px-0 px-10 border border-black">
+            <div className="w-full lg:w-1/2 ">
               <h2 className="text-3xl md:text-4xl font-semibold mb-4">{title}</h2>
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-2  text-sm md:text-base ">
@@ -126,9 +126,9 @@ const SingleProduct = () => {
                     {<CurrencyConvert price={price} />}
                   </span>
                 </p>
-                <p className="w-full  text-sm md:text-base border border-black">{description}</p>
+                <p className="w-full  text-sm md:text-base ">{description}</p>
               </div>
-              <div className="flex gap-1 md:gap-7 items-center my-2 border border-black">
+              <div className="flex gap-1 md:gap-7 items-center my-2 ">
                 <span className="flex flex-col gap-2 items-center justify-center">
                   <span className="bg-gray-100 rounded-full p-2">
                     <TbTruckDelivery className="text-xl md:text-2xl" />
@@ -154,7 +154,7 @@ const SingleProduct = () => {
                   <p className=" text-xs md:text-base text-center">Secure Payment</p>
                 </span>
               </div>
-              <hr className="border border-black md:w-2/4 h-2 mb-2" />
+              <hr className=" w-full h-2 mb-2" />
               <div>
                 <p className="md:text-start text-sm md:text-base">
                   <span className="font-semibold ">Available:</span>
@@ -179,8 +179,8 @@ const SingleProduct = () => {
                   return (
                     <p
                       key={index}
-                      className={`h-4 w-4 md:w-6 md:h-6 rounded-full font-bold opacity-50 hover:opacity-100 flex items-center justify-center text-4xl text-white mx-2 ${
-                        productColorIndex === index ? "opacity-100" : ""
+                      className={`h-4 w-4 md:w-6 md:h-6 rounded-full font-bold  hover:opacity-100 flex items-center justify-center text-4xl text-white mx-2 ${
+                        productColorIndex === index ? "opacity-full" : "opacity-30"
                       }`} // Apply conditional styling
                       style={{ backgroundColor: color }}
                       onClick={() => handleColorClick(index)} // Update the click handler
