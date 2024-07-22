@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Hero = ({ titleFirst, titleSecond, description }) => {
   return (
@@ -17,9 +18,11 @@ const Hero = ({ titleFirst, titleSecond, description }) => {
           {description}
         </p>
         <div className="text-base font-semibold my-4">
+          <Link to='/products'>
           <button className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
             Shop Now
           </button>
+          </Link>
         </div>
       </div>
       <div className=" relative hidden sm:flex items-center justify-center ">
@@ -28,7 +31,6 @@ const Hero = ({ titleFirst, titleSecond, description }) => {
           src="/image/redShoesHero.svg"
           alt="hero section image"
         />
-       
       </div>
     </div>
   );

@@ -7,13 +7,13 @@ const About = () => {
   const description =
     "At Classy Kicks, we combine timeless elegance with modern innovation to offer stylish and comfortable footwear. Explore our story and discover how we strive to create the perfect pair for every stride.";
   return (
-    <div>
+    
       <Hero
         titleFirst={titleFirst}
         titleSecond={titleSecond}
         description={description}
       />
-    </div>
+    
   );
 };
 

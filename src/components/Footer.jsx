@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <>
-      <div className="w-full h-full bg-[#000000] flex flex-col  items-center  px-5 py-20 gap-4 font-poppins text-white">
+      <div className="w-full h-full bg-[#000000] flex flex-col  items-center  px-5 py-20 gap-4 mt-5 font-poppins text-white">
         <div className="flex flex-col md:flex-row   gap-12 md:gap-6 justify-center items-center ">
           <div className=" sm:w-2/3  md:w-[27rem]  ">
             <h1 className="text-center md:text-start text-xl md:text-2xl font-bold text-[#f03030] mb-4">
@@ -62,9 +62,11 @@ const Footer = () => {
                 </Link>
               </div>
               <div className="text-base font-semibold my-4">
+                <Link to='/products'>
                 <button className="bg-[#f03030] border border-[#f03030]  text-sm md:text-base hover:bg-transparent hover:text-white hover:border-[#f03030]  rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
                   Shop Now
                 </button>
+                </Link>
               </div>
             </div>
           </div>

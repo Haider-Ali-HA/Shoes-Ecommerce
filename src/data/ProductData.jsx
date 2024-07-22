@@ -206,7 +206,7 @@ const ProductsData = [
     company: "BioRunners",
     category: "Sports",
 
-    color: ["#2d323a", "##b5e34d  "],
+    color: ["#2d323a", "#b5e34d  "],
     image: "/image/shoes9.jpg",
     description: "High-performance trainers for the active lifestyle.",
     multipleImage: [

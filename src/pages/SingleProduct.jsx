@@ -193,7 +193,7 @@ const SingleProduct = () => {
                   return (
                     <p
                       key={index}
-                      className={`h-4 w-4 md:w-6 md:h-6 rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-2 
+                      className={`h-4 w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-2 
                       
                       `} // Apply conditional styling
                       style={{ backgroundColor: color }}

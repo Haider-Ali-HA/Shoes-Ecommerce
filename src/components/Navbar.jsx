@@ -51,7 +51,7 @@ const Navbar = () => {
           className={
             color
               ? "w-full z-50 md:h-24 fixed top-0 shadow-[0px_1px_5px_#f03030] bg-white  flex items-center justify-between py-2 px-7 mg:px-12 "
-              : "w-full z-50 md:h-24 fixed top-0 bg-transparent flex items-center justify-between py-2 px-7 mg:px-12"
+              : "w-full z-50 md:h-24 mt-10 fixed top-0 bg-transparent flex items-center justify-between py-2 px-7 mg:px-12"
           }
         >
           <div className="h-full flex flex-col md:flex-row items-center justify-center md:gap-3">

@@ -12,8 +12,8 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
           onClick={() => setCurrentPage(i)}
           className={`${
             currentPage === i
-              ? "bg-black text-white w-7 h-7 rounded hover:bg-gray-800"
-              : "bg-gray-300 text-black w-7 h-7 rounded hover:bg-gray-400"
+              ? "bg-black text-white w-7 h-7  rounded hover:bg-gray-800  "
+              : "border text-black w-7 h-7  rounded hover:bg-gray-400"
           }`}
         >
           {i}
@@ -35,20 +35,20 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
         className={
           currentPage === 1
             ? "hidden"
-            : "flex items-center bg-black hover:bg-gray-800 text-white w-16 h-7 rounded justify-center"
+            : "flex items-center border bg-white hover:bg-gray-400 text-black w-16 h-7 rounded justify-center"
         }
       >
         <IoIosArrowBack />
-        <span>Prev</span>
+        <span >Prev</span>
       </button>
-      <span className="flex gap-2 ">{renderPageNumbers()}</span>
+      <span className="flex gap-4 ">{renderPageNumbers()}</span>
       <button
         onClick={() => setCurrentPage(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={
           currentPage === totalPages
             ? "hidden"
-            : "flex items-center bg-black hover:bg-gray-800 text-white w-16 h-7 rounded justify-center"
+            : "flex items-center border bg-white hover:bg-gray-400 text-black w-16 h-7 rounded justify-center"
         }
       >
         <span>Next</span>
