@@ -31,7 +31,7 @@ const Product = ({ productData }) => {
 
   return (
     <div className=" flex flex-col items-center">
-      <div className="flex w-full xl:w-3/4 flex-wrap gap-5 items-center justify-center ">
+      <div className="flex w-full  flex-wrap gap-5 items-center justify-center ">
         {currentItems.map((product) => {
           const { id, title, price, image, category } = product;
           return (

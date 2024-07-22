@@ -5,12 +5,13 @@ import SortProduct from "../components/SortProduct";
 
 const Products = () => {
   
+  
   return (
-    <div className="mt-20 flex flex-col md:flex-row justify-center  ">
-      <div className="w-full md:w-1/5 ">
+    <div className="mt-32 flex flex-col md:flex-row justify-center  ">
+      <div className="w-full md:w-3/12 ">
         <FilterProduct />
       </div>
-      <div className=" flex flex-col items-center justify-center w-full md:w-4/5 ">
+      <div className=" flex flex-col items-center justify-center w-full md:w-9/12  ">
         <SortProduct />
         <ProductList  />
       </div>

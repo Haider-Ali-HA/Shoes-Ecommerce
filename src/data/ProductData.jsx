@@ -225,7 +225,7 @@ const ProductsData = [
     company: "PureStride",
     category: "Sandals",
 
-    color: ["#2d323a   ", "#2d323a   "],
+    color: [ "#d1d3da   ","#2d323a   "],
     image: "/image/shoes10.jpg",
     description: "Elegant sandals for a light and breezy feel.",
     multipleImage: [

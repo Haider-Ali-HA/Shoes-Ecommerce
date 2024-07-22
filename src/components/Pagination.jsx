@@ -12,8 +12,8 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
           onClick={() => setCurrentPage(i)}
           className={`${
             currentPage === i
-              ? "bg-black text-white w-7 h-7  rounded hover:bg-gray-800  "
-              : "border text-black w-7 h-7  rounded hover:bg-gray-400"
+              ? "bg-black text-white w-8 h-8  rounded hover:bg-gray-800  "
+              : "border text-black w-8 h-8  rounded hover:bg-gray-400"
           }`}
         >
           {i}
@@ -35,7 +35,7 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
         className={
           currentPage === 1
             ? "hidden"
-            : "flex items-center border bg-white hover:bg-gray-400 text-black w-16 h-7 rounded justify-center"
+            : "flex items-center border bg-white hover:bg-gray-400 text-black w-16 h-8  rounded justify-center"
         }
       >
         <IoIosArrowBack />
@@ -48,7 +48,7 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
         className={
           currentPage === totalPages
             ? "hidden"
-            : "flex items-center border bg-white hover:bg-gray-400 text-black w-16 h-7 rounded justify-center"
+            : "flex items-center border bg-white hover:bg-gray-400 text-black w-16 h-8  rounded justify-center"
         }
       >
         <span>Next</span>

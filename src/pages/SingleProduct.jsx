@@ -90,7 +90,7 @@ const SingleProduct = () => {
                       alt={`${title} ${index + 1}`}
                       className={`w-16 sm:w-32 rounded cursor-pointer ${
                         index === activeImageIndex
-                          ? "shadow-2xl"
+                          ? "shadow-[1px_1px_40px_#dbdbdb] "
                           : ""
                       }`}
                     />

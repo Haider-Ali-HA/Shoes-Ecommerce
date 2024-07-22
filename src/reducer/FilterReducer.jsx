@@ -11,6 +11,22 @@ const FilterReducer = (state, action) => {
       return { ...state, all_products: action.payload, isLoading: false };
     case "IS_LOADING":
       return { ...state, isLoading: true };
+    case "SORT_PRODUCTS":
+      const { all_products } = state;
+      let tempProducts = [...all_products];
+      if (action.payload === "lowest") {
+        tempProducts = tempProducts.sort((a, b) => a.price - b.price);
+      }
+      if (action.payload === "highest") {
+        tempProducts = tempProducts.sort((a, b) => b.price - a.price);
+      }
+      if (action.payload === "a-z") {
+        tempProducts = tempProducts.sort((a, b) => a.title.localeCompare(b.title));
+      }
+      if (action.payload === "z-a") {
+        tempProducts = tempProducts.sort((a, b) => b.title.localeCompare(a.title));
+      }
+      return { ...state, all_products: tempProducts };
     default:
       return state;
   }
