@@ -3,6 +3,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
   const [lastPage, setLastPage] = useState(1);
+
   const renderPageNumbers = () => {
     let pages = [];
     for (let i = 1; i <= totalPages; i++) {
@@ -25,7 +26,7 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
   };
   useEffect(() => {
     setLastPage(totalPages);
-  }, [totalPages]); 
+  }, [totalPages]);
 
   return (
     <div className="w-full xl:w-3/4 flex items-center justify-center gap-3 mb-10">
@@ -39,14 +40,14 @@ const Pagination = ({ setCurrentPage, currentPage, totalPages }) => {
         }
       >
         <IoIosArrowBack />
-        <span >Prev</span>
+        <span>Prev</span>
       </button>
       <span className="flex gap-4 ">{renderPageNumbers()}</span>
       <button
         onClick={() => setCurrentPage(currentPage + 1)}
-        disabled={currentPage === totalPages}
+        disabled={currentPage === lastPage}
         className={
-          currentPage === totalPages
+          currentPage === lastPage
             ? "hidden"
             : "flex items-center border bg-white hover:bg-gray-400 text-black w-16 h-8  rounded justify-center"
         }
