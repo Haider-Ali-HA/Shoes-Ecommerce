@@ -6,8 +6,6 @@ const SortProduct = () => {
 
   const length = all_products.length;
 
- 
-
   return (
     <div className=" flex items-center justify-between w-9/12  ">
       <div className="font-semibold text-sm md:text-lg">
@@ -16,10 +14,9 @@ const SortProduct = () => {
       </div>
       <div>
         <select
-         
           id="sortProduct"
           className="mx-2 px-2 py-1 border"
-          onChange={() =>  sortingProductData()}
+          onChange={() => sortingProductData()}
         >
           <option value="lowest">Price (lowest)</option>
           <option value="highest">Price (highest)</option>
