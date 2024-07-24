@@ -113,7 +113,7 @@ const ProductsData = [
     id: 5,
     title: "Casual Loafers",
     price: 3000,
-    company: "UrbanSteps",
+    company: "UrbanFoot",
     category: "Loafer",
 
     color: ["#285ba8  ", "#d0ccc3 "],
@@ -133,7 +133,7 @@ const ProductsData = [
     id: 6,
     title: "Classic Formal Shoes",
     price: 7500,
-    company: "ElegantSteps",
+    company: "UrbanFoot",
     category: "Formal",
 
     color: ["#d0ccc3 ", "#000000"],
@@ -152,7 +152,7 @@ const ProductsData = [
     id: 7,
     title: "Marathon Pro Running Shoes",
     price: 6500,
-    company: "SpeedTrack",
+    company: "UrbanFoot",
     category: "Athletic",
   
     color: ["#d1d3da", "#e8dac7", "#77866f"],
@@ -183,7 +183,7 @@ const ProductsData = [
     id: 8,
     title: "Trendy Sneakers",
     price: 5500,
-    company: "VerdantVoyage",
+    company: "GymGear",
     category: "Sneakers",
 
     color: ["#b20626   ", "#285ba8  "],
@@ -203,7 +203,7 @@ const ProductsData = [
     id: 9,
     title: "Sporty Trainers",
     price: 6700,
-    company: "BioRunners",
+    company: "OutdoorAdventures",
     category: "Sports",
 
     color: ["#2d323a", "#b5e34d  "],
@@ -222,7 +222,7 @@ const ProductsData = [
     id: 10,
     title: "Elegant Sandals",
     price: 2500,
-    company: "PureStride",
+    company: "GymGear",
     category: "Sandals",
 
     color: [ "#d1d3da   ","#2d323a   "],
@@ -241,7 +241,7 @@ const ProductsData = [
     id: 11,
     title: "Modern Formal Shoes",
     price: 8000,
-    company: "NaturePace",
+    company: "OutdoorAdventures",
     category: "Formal",
 
     color: ["#2d323a   ", "#b5e34d  "],
@@ -261,7 +261,7 @@ const ProductsData = [
     id: 12,
     title: "Adventure Boots",
     price: 9500,
-    company: "LeafySteps",
+    company: "GymGear",
     category: "Boots",
 
     color: ["#b36554", "#2d323a   "],
@@ -281,7 +281,7 @@ const ProductsData = [
     id: 13,
     title: "Classic Sneakers",
     price: 6000,
-    company: "EcoSole",
+    company: "EarthWalk",
     category: "Sneakers",
 
     color: ["#2d323a   ", "#b36554"],
@@ -321,7 +321,7 @@ const ProductsData = [
     id: 15,
     title: "Eco-Friendly Running Shoes",
     price: 10000,
-    company: "GreenStride",
+    company: "EarthWalk",
     category: "Footwear",
 
     color: ["#2d323a", "#d1d3da", "#e8dac7"],

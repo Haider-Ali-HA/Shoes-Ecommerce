@@ -11,6 +11,7 @@ const initialState = {
   filter: {
     searchValue: "",
     searchCategory: "",
+    selectCompany: "",
   },
 };
 
@@ -18,8 +19,6 @@ const FilterProvider = ({ children }) => {
   const { products } = useProductContext();
   const [state, dispatch] = useReducer(reducer, initialState);
 
-
- 
   // get sorting product value
   const sortingProductData = () => {
     const value = document.getElementById("sortProduct").value;
@@ -27,20 +26,21 @@ const FilterProvider = ({ children }) => {
   };
 
   //get name value from search box
+  console.log("e", state.selectCompany);
   const updateFilterValue = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    
-    
-    dispatch({ type: "SEARCH_NAME", payload: {value,name} });
+    console.log("e", state.selectCompany);
+
+    console.log("value", value, "name", name);
+
+    dispatch({ type: "SEARCH_VALUE", payload: { value, name } });
   };
 
   useEffect(() => {
     dispatch({ type: "FILTER_DATA" });
-   
   }, [state.filter]);
   useEffect(() => {
-
     dispatch({ type: "GET_ALL_PRODUCTS", payload: products });
     dispatch({ type: "IS_LOADING" });
   }, [products]);
@@ -50,7 +50,7 @@ const FilterProvider = ({ children }) => {
         ...state,
         sortingProductData,
         updateFilterValue,
-              }}
+      }}
     >
       {children}
     </Filter.Provider>

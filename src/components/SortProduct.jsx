@@ -15,7 +15,7 @@ const SortProduct = () => {
       <div>
         <select
           id="sortProduct"
-          className="mx-2 px-2 py-1 border"
+          className="my-3 border px-2 py-3"
           onChange={() => sortingProductData()}
         >
           <option value="lowest">Price (lowest)</option>

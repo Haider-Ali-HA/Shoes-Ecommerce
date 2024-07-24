@@ -31,15 +31,14 @@ const FilterReducer = (state, action) => {
         );
       }
       return { ...state, all_products: tempProducts };
-    case "SEARCH_NAME":
+    case "SEARCH_VALUE":
       const { name, value } = action.payload;
 
       return { ...state, filter: { ...state.filter, [name]: value } };
     case "FILTER_DATA":
-     
       let tempProductsData = [...state.filter_products];
-      const searchValue = state.filter.searchValue;
-      const searchCategory = state.filter.searchCategory;
+      const {searchValue,searchCategory,selectCompany} = state.filter;
+      // const searchCategory = state.filter.searchCategory;
 
       if (searchValue) {
         tempProductsData = tempProductsData.filter((item) => {
@@ -52,6 +51,14 @@ const FilterReducer = (state, action) => {
             return item;
           }
           return item.category === searchCategory;
+        });
+      }
+      if (selectCompany) {
+        tempProductsData = tempProductsData.filter((item) => {
+          if (selectCompany === "All") {
+            return item;
+          }
+          return item.company === selectCompany;
         });
       }
       return { ...state, all_products: tempProductsData };
