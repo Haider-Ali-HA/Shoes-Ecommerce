@@ -17,9 +17,9 @@ const FilterProduct = () => {
   const filterProductData = getUniqueValue(filter_products, "category");
   
 
-  const handleCategoryClick = (e) => {
-    // filterSpecificItem(item);
-    // setSelectedCategory(item); // Update the selected category
+  const handleCategoryClick = (e,item) => {
+   
+    setSelectedCategory(item); // Update the selected category
     updateFilterValue(e);
   };
 
@@ -56,7 +56,7 @@ const FilterProduct = () => {
                       ? " border-b-2 text-[#ff4343] border-[#ff4343]"
                       : "border-b-2 border-white hover:text-[#ff4343]"
                   }`} // Conditionally apply border bottom
-                  onClick={(e) => handleCategoryClick(e)}
+                  onClick={(e) => handleCategoryClick(e,item)}
                 >
                   {item}
                   
