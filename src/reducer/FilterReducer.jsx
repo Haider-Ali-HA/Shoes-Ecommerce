@@ -3,7 +3,12 @@ const FilterReducer = (state, action) => {
     case "GET_ALL_PRODUCTS":
       const tempProduct = action.payload.sort((a, b) => a.price - b.price);
 
-      return { ...state, all_products: [...tempProduct],filter_products: [...tempProduct], isLoading: false };
+      return {
+        ...state,
+        all_products: [...tempProduct],
+        filter_products: [...tempProduct],
+        isLoading: false,
+      };
     case "IS_LOADING":
       return { ...state, isLoading: true };
     case "SORT_PRODUCTS":
@@ -27,17 +32,102 @@ const FilterReducer = (state, action) => {
       }
       return { ...state, all_products: tempProducts };
     case "SEARCH_NAME":
-      return { ...state, searchValue: action.payload };
-    case "FILTER_DATA_BY_NAME":
-      
+      const { name, value } = action.payload;
+      return { ...state,filter:{ ...state.filter,[name]: value }};
+    case "FILTER_DATA":
       let tempProductsData = [...state.filter_products];
-      const searchValue = state.searchValue;
-     
-      tempProductsData = tempProductsData.filter((item) => {
-        return item.title.toLowerCase().includes(searchValue);
-      });
-      return { ...state, all_products: tempProductsData };
+      const searchValue = state.filter.searchValue;
+      const searchCategory = state.filter.searchCategory;
+      // console.log("searchCategory", searchCategory);
+      if (searchValue) {
+        tempProductsData = tempProductsData.filter((item) => {
+          return item.title.toLowerCase().includes(searchValue);
+        });
+      }
+      if (searchCategory) {
+        // tempProductsData = tempProductsData.filter((item) => {
+        //   return item.category === searchCategory;
+        console.log("hello")
+        tempProductsData = tempProductsData.filter((item) => {
+          if(searchCategory==="All"){
+            return item;
+          }
+          return item.category===searchCategory;
+        });
+      }
+        return { ...state, all_products: tempProductsData };
+        // const Common = (searchCategory) => {
+        //   tempProductsData = tempProductsData.filter((item) => {
+        //     return item.category.includes(searchCategory);
+        //   });
+        //   return { ...state, all_products: tempProductsData };
+        // };
+        // if(searchCategory){
+        //       switch (searchCategory) {
+        //         case "Sandals":
+        //           Common(searchCategory);
+        //         case "Loafer":
+        //           Common(searchCategory);
+        //         case "Sneakers":
+        //           Common(searchCategory);
+        //         case "Boots":
+        //           Common(searchCategory);
+        //         case "Formal":
+        //           Common(searchCategory);
+        //         case "Casual Wear":
+        //           Common(searchCategory);
+        //         case "Athletic":
+        //           Common(searchCategory);
+        //         case "Sports":
+        //           Common(searchCategory);
+        //         case "Fitness":
+        //           Common(searchCategory);
+        //         case "Outdoor":
+        //           Common(searchCategory);
+        //         case "Footwear":
+        //           Common(searchCategory);
+        //         default:
+        //           return { ...state, all_products: tempProductsData };
+        //       }
+        //   }
+        // case "FILTER_DATA_BY_ITEM":
+        //   let tempProductsDataItem = [...state.filter_products];
+        //   const searchCategory = action.payload;
+        //   // Reduce code duplication by creating a common function
+        //   const Common = (searchCategory) => {
+        //     tempProductsDataItem = tempProductsDataItem.filter((item) => {
+        //       return item.category.includes(searchCategory);
+        //     });
+        //     return { ...state, all_products: tempProductsDataItem };
+        //   };
 
+        //   switch (searchCategory) {
+        //     case "Sandals":
+        //       Common(searchCategory);
+        //     case "Loafer":
+        //       Common(searchCategory);
+        //     case "Sneakers":
+        //       Common(searchCategory);
+        //     case "Boots":
+        //       Common(searchCategory);
+        //     case "Formal":
+        //       Common(searchCategory);
+        //     case "Casual Wear":
+        //       Common(searchCategory);
+        //     case "Athletic":
+        //       Common(searchCategory);
+        //     case "Sports":
+        //       Common(searchCategory);
+        //     case "Fitness":
+        //       Common(searchCategory);
+        //     case "Outdoor":
+        //       Common(searchCategory);
+        //     case "Footwear":
+        //       Common(searchCategory);
+        //     default:
+        //       return { ...state, all_products: tempProductsDataItem };
+        //   
+      
     default:
       return state;
   }

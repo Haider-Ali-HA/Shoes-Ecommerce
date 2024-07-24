@@ -6,28 +6,28 @@ import ConvertCurrency from "../components/CurrencyConvert";
 import Pagination from "./Pagination";
 
 const Product = ({ productData }) => {
-  const navigate = useNavigate();
+  //pagination
   const [currentPage, setCurrentPage] = useState(1);
-
   const itemsPerPage = 9;
-
   const totalPages = Math.ceil(productData.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = productData.slice(indexOfFirstItem, indexOfLastItem);
 
+  // handle product click
+  const navigate = useNavigate();
   const handleProductClick = (id) => {
     navigate(`/singleProducts/${id}`);
   };
+
+  //remove pagination for home page
   const [removePagination, setRemovePagination] = useState(false);
   const location = useLocation();
-
   useEffect(() => {
     if (location.pathname === "/") {
       setRemovePagination(true);
     }
   }, [location.pathname]);
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = productData.slice(indexOfFirstItem, indexOfLastItem);
 
   return (
     <div className=" flex flex-col items-center">
@@ -63,13 +63,12 @@ const Product = ({ productData }) => {
         })}
       </div>
       {!removePagination && (
-
         <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
-        setCurrentPage={setCurrentPage}
-        />)
-      }
+          currentPage={currentPage}
+          totalPages={totalPages}
+          setCurrentPage={setCurrentPage}
+        />
+      )}
     </div>
   );
 };
