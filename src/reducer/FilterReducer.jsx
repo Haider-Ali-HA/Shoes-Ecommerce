@@ -37,20 +37,20 @@ const FilterReducer = (state, action) => {
       return { ...state, filter: { ...state.filter, [name]: value } };
     case "FILTER_DATA":
       let tempProductsData = [...state.filter_products];
-      const {searchValue,searchCategory,selectCompany} = state.filter;
-      // const searchCategory = state.filter.searchCategory;
+      const { searchValue, selectCategory, selectCompany, selectColor } =
+        state.filter;
 
       if (searchValue) {
         tempProductsData = tempProductsData.filter((item) => {
           return item.title.toLowerCase().includes(searchValue);
         });
       }
-      if (searchCategory) {
+      if (selectCategory) {
         tempProductsData = tempProductsData.filter((item) => {
-          if (searchCategory === "All") {
+          if (selectCategory === "All") {
             return item;
           }
-          return item.category === searchCategory;
+          return item.category === selectCategory;
         });
       }
       if (selectCompany) {
@@ -61,6 +61,21 @@ const FilterReducer = (state, action) => {
           return item.company === selectCompany;
         });
       }
+      if (selectColor) {
+        console.log("select color ", selectColor);
+        tempProductsData = tempProductsData.filter((item) => {
+          if (selectColor === "All") {
+            return item;
+          }
+
+          console.log("selected color", selectColor)
+          console.log(" color", item.color)
+          console.log("filter color", item.color.includes(selectColor))
+
+          return item.color.includes(selectColor);
+        });
+      }
+
       return { ...state, all_products: tempProductsData };
 
     default:

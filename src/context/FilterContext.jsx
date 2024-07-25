@@ -10,8 +10,9 @@ const initialState = {
   filter_products: [],
   filter: {
     searchValue: "",
-    searchCategory: "",
+    selectCategory: "",
     selectCompany: "",
+    selectColor:"",
   },
 };
 
@@ -26,13 +27,13 @@ const FilterProvider = ({ children }) => {
   };
 
   //get name value from search box
-  console.log("e", state.selectCompany);
+  // console.log("e", state.selectCompany);
   const updateFilterValue = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    console.log("e", state.selectCompany);
+    // console.log("e", state.selectCompany);
 
-    console.log("value", value, "name", name);
+    // console.log("value", value, "name", name);
 
     dispatch({ type: "SEARCH_VALUE", payload: { value, name } });
   };
