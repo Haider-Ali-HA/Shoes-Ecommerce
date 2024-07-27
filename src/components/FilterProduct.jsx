@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useFilterContext } from "../context/FilterContext";
+import { IoIosCheckmark } from "react-icons/io";
+import CurrencyConvert from "./CurrencyConvert";
 
 const FilterProduct = () => {
   const {
     updateFilterValue,
-    filter: { searchValue },
-
+    filter: { searchValue, selectColor, price, maxPrice, minPrice },
     filter_products,
+    ClearFilters
   } = useFilterContext();
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -15,10 +17,9 @@ const FilterProduct = () => {
     let data = allData.map((item) => {
       return item[value];
     });
-   
+
     if (value === "color") {
-      data =data.flat();
-    
+      data = data.flat();
     }
     return (data = ["All", ...new Set(data)]);
   };
@@ -26,8 +27,6 @@ const FilterProduct = () => {
   const filterCategoryData = getUniqueValue(filter_products, "category");
   const filterCompanyData = getUniqueValue(filter_products, "company");
   const filterColorData = getUniqueValue(filter_products, "color");
-
-  
 
   const handleCategoryClick = (e, item) => {
     setSelectedCategory(item);
@@ -105,26 +104,61 @@ const FilterProduct = () => {
       </div>
 
       {/* filter by Color  */}
-      <div className=" p-3 ">
-        <h1 className="font-bold text-2xl">Color</h1>
+      <div className="w-52 p-3 ">
+        <h1 className="font-bold mb-3 text-2xl">Color</h1>
         <div className="flex  ">
-
-        {filterColorData?.map((color, index) => {
-          return (
-            <button
-            name="selectColor"
-            value={color}
-            type="button"
-            onClick={(e)=>handleCategoryClick(e)}
-            key={index}
-            className={`h-4  w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-1 
-              
-              `} // Apply conditional styling
-              style={{ backgroundColor: color }}
-              ></button>
+          {filterColorData?.map((color, index) => {
+            return color === "All" ? (
+              <button
+                name="selectColor"
+                value={color}
+                type="button"
+                onClick={(e) => handleCategoryClick(e)}
+                key={index}
+                className=" mx-1 hover:opacity-70 cursor-pointer"
+              >
+                All
+              </button>
+            ) : (
+              <button
+                name="selectColor"
+                value={color}
+                type="button"
+                onClick={(e) => handleCategoryClick(e, index)}
+                key={index}
+                className={`h-4 w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-1`}
+                style={{ backgroundColor: color }}
+              >
+                {color === selectColor ? <IoIosCheckmark /> : ""}
+              </button>
             );
           })}
-          </div>
+        </div>
+      </div>
+
+      {/* filter by price */}
+      <div className="w-52 p-3">
+        <h1 className="font-bold text-2xl mb-1">Price</h1>
+        <div className="flex flex-col gap-3">
+          <span>
+            <CurrencyConvert price={price} />
+          </span>
+          {console.log("price", price)}
+          <input
+            type="range"
+            value={price}
+            name="price"
+            min={minPrice}
+            max={maxPrice}
+            onChange={(e) => updateFilterValue(e)}
+          />
+        </div>
+      </div>
+      <div className="w-52">
+
+      <button onClick={()=>ClearFilters()} className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-full my-10  md:h-12 text-white transition-all duration-500">
+        Clear All Filters
+      </button>
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-
 import { useProductContext } from "./ProductContext";
 import reducer from "../reducer/FilterReducer";
+
 const Filter = createContext();
 
 const initialState = {
@@ -12,7 +12,10 @@ const initialState = {
     searchValue: "",
     selectCategory: "",
     selectCompany: "",
-    selectColor:"",
+    selectColor: "",
+    minPrice: 0,
+    maxPrice: 0,
+    price: 0,
   },
 };
 
@@ -26,31 +29,34 @@ const FilterProvider = ({ children }) => {
     dispatch({ type: "SORT_PRODUCTS", payload: value });
   };
 
-  //get name value from search box
-  // console.log("e", state.selectCompany);
+  // get name value from search box
   const updateFilterValue = (e) => {
     const value = e.target.value;
     const name = e.target.name;
-    // console.log("e", state.selectCompany);
-
-    // console.log("value", value, "name", name);
-
     dispatch({ type: "SEARCH_VALUE", payload: { value, name } });
   };
+
+  // Clear all filters
+  const ClearFilters = () => {
+    dispatch({ type: "CLEAR_FILTERS" });
+  };
+  useEffect(() => {
+    dispatch({ type: "GET_ALL_PRODUCTS", payload: products });
+    dispatch({ type: "IS_LOADING" });
+    dispatch({ type: "FILTER_PRICE" }); // Dispatch FILTER_PRICE action
+  }, [products]);
 
   useEffect(() => {
     dispatch({ type: "FILTER_DATA" });
   }, [state.filter]);
-  useEffect(() => {
-    dispatch({ type: "GET_ALL_PRODUCTS", payload: products });
-    dispatch({ type: "IS_LOADING" });
-  }, [products]);
+
   return (
     <Filter.Provider
       value={{
         ...state,
         sortingProductData,
         updateFilterValue,
+        ClearFilters
       }}
     >
       {children}

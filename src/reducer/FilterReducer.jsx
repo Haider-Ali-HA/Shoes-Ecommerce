@@ -2,7 +2,6 @@ const FilterReducer = (state, action) => {
   switch (action.type) {
     case "GET_ALL_PRODUCTS":
       const tempProduct = action.payload.sort((a, b) => a.price - b.price);
-
       return {
         ...state,
         all_products: [...tempProduct],
@@ -33,13 +32,25 @@ const FilterReducer = (state, action) => {
       return { ...state, all_products: tempProducts };
     case "SEARCH_VALUE":
       const { name, value } = action.payload;
-
       return { ...state, filter: { ...state.filter, [name]: value } };
+    case "FILTER_PRICE":
+      let tempPrice = state.all_products.map((item) => item.price);
+      let maxPrice = Math.max(...tempPrice);
+      let minPrice = Math.min(...tempPrice);
+      return {
+        ...state,
+        filter: { ...state.filter, maxPrice, minPrice },
+      };
+    case "CLEAR_FILTERS":
+      let ClearData = [...state.filter_products];
+      ClearData = ClearData.filter((item) => {
+        return item;
+      })
+      return { ...state, all_products: ClearData };
     case "FILTER_DATA":
       let tempProductsData = [...state.filter_products];
-      const { searchValue, selectCategory, selectCompany, selectColor } =
+      const { searchValue, selectCategory, selectCompany, selectColor ,price} =
         state.filter;
-
       if (searchValue) {
         tempProductsData = tempProductsData.filter((item) => {
           return item.title.toLowerCase().includes(searchValue);
@@ -62,22 +73,19 @@ const FilterReducer = (state, action) => {
         });
       }
       if (selectColor) {
-        console.log("select color ", selectColor);
         tempProductsData = tempProductsData.filter((item) => {
           if (selectColor === "All") {
             return item;
           }
-
-          console.log("selected color", selectColor)
-          console.log(" color", item.color)
-          console.log("filter color", item.color.includes(selectColor))
-
           return item.color.includes(selectColor);
         });
       }
-
+      if (price) {
+        tempProductsData = tempProductsData.filter((item) => {
+          return item.price <= price;
+        });
+      }
       return { ...state, all_products: tempProductsData };
-
     default:
       return state;
   }

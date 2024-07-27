@@ -11,7 +11,7 @@ const Products = () => {
       <div className="w-full md:w-3/12 ">
         <FilterProduct />
       </div>
-      <div className=" flex flex-col items-center justify-center w-full md:w-9/12  ">
+      <div className=" flex flex-col items-center  w-full md:w-9/12  ">
         <SortProduct />
         <ProductList  />
       </div>
