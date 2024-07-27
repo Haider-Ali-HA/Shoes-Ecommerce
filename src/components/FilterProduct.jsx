@@ -8,7 +8,7 @@ const FilterProduct = () => {
     updateFilterValue,
     filter: { searchValue, selectColor, price, maxPrice, minPrice },
     filter_products,
-    ClearFilters
+    ClearFilters,
   } = useFilterContext();
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -53,6 +53,24 @@ const FilterProduct = () => {
         </form>
       </div>
 
+      {/* filter by price */}
+      <div className="w-52 p-3">
+        <h1 className="font-bold text-2xl mb-1">Price</h1>
+        <div className="flex flex-col gap-3">
+          <span>
+            <CurrencyConvert price={price} />
+          </span>
+          {console.log("price", price)}
+          <input
+            type="range"
+            value={price}
+            name="price"
+            min={minPrice}
+            max={maxPrice}
+            onChange={(e) => updateFilterValue(e)}
+          />
+        </div>
+      </div>
       {/* filter by category */}
       <div className=" w-52 p-3 ">
         <h1 className="font-bold text-2xl">Category</h1>
@@ -136,29 +154,13 @@ const FilterProduct = () => {
         </div>
       </div>
 
-      {/* filter by price */}
-      <div className="w-52 p-3">
-        <h1 className="font-bold text-2xl mb-1">Price</h1>
-        <div className="flex flex-col gap-3">
-          <span>
-            <CurrencyConvert price={price} />
-          </span>
-          {console.log("price", price)}
-          <input
-            type="range"
-            value={price}
-            name="price"
-            min={minPrice}
-            max={maxPrice}
-            onChange={(e) => updateFilterValue(e)}
-          />
-        </div>
-      </div>
       <div className="w-52">
-
-      <button onClick={()=>ClearFilters()} className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-full my-10  md:h-12 text-white transition-all duration-500">
-        Clear All Filters
-      </button>
+        <button
+          onClick={() => ClearFilters()}
+          className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-full my-10  md:h-12 text-white transition-all duration-500"
+        >
+          Clear All Filters
+        </button>
       </div>
     </div>
   );
