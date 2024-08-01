@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import UnderConstruction from "./components/UnderConstruction";
 
 const App = () => {
-  const [isUnderConstruction, setIsUnderConstruction] = useState(true);
+  const isUnderConstruction = true;
 
   return (
     <BrowserRouter>
