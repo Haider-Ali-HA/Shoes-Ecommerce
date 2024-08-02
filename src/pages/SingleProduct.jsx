@@ -3,15 +3,19 @@ import { GiReceiveMoney } from "react-icons/gi";
 import { MdSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
 import { TbTruckDelivery } from "react-icons/tb";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useProductContext } from "../context/ProductContext";
 import PaginationSingleProduct from "../components/PaginationSingleProduct";
 import CurrencyConvert from "../components/CurrencyConvert";
 import Stars from "../components/Stars";
 import { IoIosCheckmark } from "react-icons/io";
 import { FaMinus, FaPlus } from "react-icons/fa";
+import { useCartContext } from "../context/CartContext";
 
 const SingleProduct = () => {
+
+const {addToCart}=useCartContext();
+
   const { getSingleProduct, isSingleLoading, singleProduct } =
     useProductContext();
   const { id } = useParams();
@@ -221,9 +225,11 @@ const SingleProduct = () => {
                 </span>
               </div>
               <div className="text-base font-semibold my-4">
-                <button className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
+                <Link to="/cart">
+                <button onClick={()=>addToCart(id,color,price,singleProduct)} className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
                   Add to Cart
                 </button>
+                </Link>
               </div>
             </div>
           </div>
