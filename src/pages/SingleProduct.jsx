@@ -43,19 +43,21 @@ const {addToCart}=useCartContext();
 
   // Set the initial color index
   const [productColorIndex, setProductColorIndex] = useState(0);
+  const [selectedProductColor, setSelectedProductColor] = useState("");
 
   // increase or descrease the quantity
-  const [Quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(1);
   const IncreaseQuantity = () => {
-    Quantity > 0 ? setQuantity(Quantity + 1) : setQuantity(1);
+    quantity > 0 ? setQuantity(quantity + 1) : setQuantity(1);
   };
   const DecreaseQuantity = () => {
-    Quantity > 1 ? setQuantity(Quantity - 1) : setQuantity(1);
+    quantity > 1 ? setQuantity(quantity - 1) : setQuantity(1);
   };
 
   // Handle color click to set the active color
-  const handleColorClick = (index) => {
+  const handleColorClick = (index,colors) => {
     setProductColorIndex(index);
+    setSelectedProductColor(colors);
   };
 
   //Handle image click to set the active image
@@ -193,16 +195,17 @@ const {addToCart}=useCartContext();
               {/* <hr className="w-full h-4" /> */}
               <div className="flex my-3  text-sm md:text-base">
                 <h3 className="font-semibold">Colors:</h3>
-                {color?.map((color, index) => {
+                {color?.map((colors, index) => {
                   return (
                     <p
-                      key={index}
-                      className={`h-4 w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-2 
+                    key={index}
+                    className={`h-4 w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-2 
                       
                       `} // Apply conditional styling
-                      style={{ backgroundColor: color }}
-                      onClick={() => handleColorClick(index)} // Update the click handler
-                    >
+                      style={{ backgroundColor: colors }}
+                      onClick={() => handleColorClick(index,colors)} // Update the click handler
+                      >
+                     
                       {productColorIndex === index ? <IoIosCheckmark /> : ""}
                     </p>
                   );
@@ -216,7 +219,7 @@ const {addToCart}=useCartContext();
                 >
                   <FaMinus />
                 </span>
-                <span>{Quantity}</span>
+                <span>{quantity}</span>
                 <span
                   className="hover:bg-gray-700 hover:text-white rounded-full p-1"
                   onClick={() => IncreaseQuantity()}
@@ -226,7 +229,7 @@ const {addToCart}=useCartContext();
               </div>
               <div className="text-base font-semibold my-4">
                 <Link to="/cart">
-                <button onClick={()=>addToCart(id,color,price,singleProduct)} className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
+                <button onClick={()=>addToCart(id,selectedProductColor,quantity,singleProduct)} className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
                   Add to Cart
                 </button>
                 </Link>

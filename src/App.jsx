@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 import UnderConstruction from "./components/UnderConstruction";
 
 const App = () => {
-  const isUnderConstruction = true;
+  const isUnderConstruction = false;
 
   return (
     <BrowserRouter>

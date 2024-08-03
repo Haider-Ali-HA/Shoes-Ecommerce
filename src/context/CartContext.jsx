@@ -10,11 +10,13 @@ const initialState = {
   shipping_fee: 534,
 };
 const CartProvider = ({ children }) => {
+  
   const [state, dispatch] = useReducer(reducer, initialState);
-  const addToCart = (id, color, price, singleProduct) => {
+  console.log("cart",state.cart)
+  const addToCart = (id, color, quantity, singleProduct) => {
     dispatch({
       type: "ADD_TO_CART",
-      payload: { id, color, price, singleProduct },
+      payload: { id, color, quantity, singleProduct },
     });
   };
   return (
