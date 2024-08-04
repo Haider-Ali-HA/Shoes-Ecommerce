@@ -42,7 +42,8 @@ const {addToCart}=useCartContext();
   const [singleImage, setSingleImage] = useState(image);
 
   // Set the initial color index
-  const [productColorIndex, setProductColorIndex] = useState(0);
+  const [productColorSelected, setProductColorSelected] = useState();
+  
   const [selectedProductColor, setSelectedProductColor] = useState("");
 
   // increase or descrease the quantity
@@ -56,7 +57,7 @@ const {addToCart}=useCartContext();
 
   // Handle color click to set the active color
   const handleColorClick = (index,colors) => {
-    setProductColorIndex(index);
+    setProductColorSelected(index); // Step 1: Update the active color index
     setSelectedProductColor(colors);
   };
 
@@ -206,7 +207,7 @@ const {addToCart}=useCartContext();
                       onClick={() => handleColorClick(index,colors)} // Update the click handler
                       >
                      
-                      {productColorIndex === index ? <IoIosCheckmark /> : ""}
+                      {productColorSelected===index ? <IoIosCheckmark /> : ""}
                     </p>
                   );
                 })}

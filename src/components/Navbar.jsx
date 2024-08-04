@@ -114,10 +114,12 @@ const Navbar = () => {
               </button>
             </div>
             <div className="flex relative">
+            <Link to="/cart" className="cursor-pointer ">
               <IoCartOutline className="text-2xl " />
               <span className="bg-[#f03030] text-white absolute -top-4 left-4 rounded-full flex items-center justify-center text-base h-6 w-6">
                 1
               </span>
+              </Link>
             </div>
           </div>
           <div className="cursor-pointer text-xl md:hidden">
@@ -190,11 +192,13 @@ const Navbar = () => {
             <button className="bg-[#f03030] border border-[#f03030] hover:bg-transparent hover:text-black rounded-full w-24 h-10 text-white transition-all duration-500">
               Login
             </button>
-            <div className="flex relative">
+            <div className="flex relative ">
+              <Link to="/cart" className="cursor-pointer ">
               <IoCartOutline className="text-2xl " />
               <span className="bg-[#f03030] text-white absolute -top-4 left-4 rounded-full flex items-center justify-center text-base h-6 w-6">
-                1
+                10
               </span>
+              </Link>
             </div>
           </div>
         </div>

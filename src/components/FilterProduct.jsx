@@ -60,7 +60,6 @@ const FilterProduct = () => {
           <span>
             <CurrencyConvert price={price} />
           </span>
-          {console.log("price", price)}
           <input
             type="range"
             value={price}
