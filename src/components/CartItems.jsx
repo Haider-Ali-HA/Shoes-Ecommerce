@@ -23,7 +23,7 @@ const CartItems = () => {
         return (
           <div
             key={item.id}
-            className="grid grid-cols-5   text-center text-xl font-semibold"
+            className="grid grid-cols-3 md:grid-cols-5   text-center text-xl font-semibold"
           >
             <div className="col-span-1 flex gap-3 ">
               <img
@@ -42,7 +42,7 @@ const CartItems = () => {
                 </span>
               </span>
             </div>
-            <h1 className="col-span-1 m-auto ">
+            <h1 className="col-span-1 m-auto hidden md:block ">
            
               <CurrencyConvert price={item.price} />
             </h1>
@@ -61,7 +61,7 @@ const CartItems = () => {
                 <FaPlus />
               </span>
             </h1>
-            <h1 className="col-span-1 m-auto ">
+            <h1 className="col-span-1 m-auto  hidden md:block ">
               {" "}
               <CurrencyConvert price={item.price * item.quantity} />
             </h1>
