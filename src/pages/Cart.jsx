@@ -1,7 +1,9 @@
 import React from "react";
 import CartItems from "../components/CartItems";
+import { useCartContext } from "../context/CartContext";
 
 const Cart = () => {
+  const { cart, removeCartItem } = useCartContext();
   return (
     <div className="mt-20 h-full w-full flex items-center justify-center flex-col gap-3 py-32">
       <div className="grid grid-cols-4 md:grid-cols-6 gap-5 w-5/6 lg:w-4/6 text-center text-sm md:text-xl font-semibold">
@@ -14,7 +16,9 @@ const Cart = () => {
       <hr className="h-2 w-5/6 lg:w-4/6 border-black " />
       <div className=" w-5/6 lg:w-4/6">
 
-        <CartItems />
+      {cart.map((item) => {
+        return <CartItems key={item.id} {...item} removeCartItem={removeCartItem} />;
+      })}
       </div>
     </div>
   );

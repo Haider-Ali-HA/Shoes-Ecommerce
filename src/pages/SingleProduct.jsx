@@ -11,6 +11,7 @@ import Stars from "../components/Stars";
 import { IoIosCheckmark } from "react-icons/io";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useCartContext } from "../context/CartContext";
+import ProductQuantity from "../components/ProductQuantity";
 
 const SingleProduct = () => {
 
@@ -48,13 +49,7 @@ const {addToCart}=useCartContext();
 
   // increase or descrease the quantity
   const [quantity, setQuantity] = useState(1);
-  const IncreaseQuantity = () => {
-    quantity > 0 ? setQuantity(quantity + 1) : setQuantity(1);
-  };
-  const DecreaseQuantity = () => {
-    quantity > 1 ? setQuantity(quantity - 1) : setQuantity(1);
-  };
-
+ 
   // Handle color click to set the active color
   const handleColorClick = (index,colors) => {
     setProductColorSelected(index); // Step 1: Update the active color index
@@ -214,19 +209,7 @@ const {addToCart}=useCartContext();
               </div>
               <div className="flex items-center gap-3  text-sm md:text-base">
                 <h1 className="font-semibold">Quantity : </h1>
-                <span
-                  className="hover:bg-gray-700 hover:text-white rounded-full p-1"
-                  onClick={() => DecreaseQuantity()}
-                >
-                  <FaMinus />
-                </span>
-                <span>{quantity}</span>
-                <span
-                  className="hover:bg-gray-700 hover:text-white rounded-full p-1"
-                  onClick={() => IncreaseQuantity()}
-                >
-                  <FaPlus />
-                </span>
+               <ProductQuantity amount={quantity} setAmount={setQuantity} />
               </div>
               <div className="text-base font-semibold my-4">
                 <Link to="/cart">
