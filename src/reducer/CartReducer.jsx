@@ -12,6 +12,7 @@ const CartReducer = (state, action) => {
       image: singleProduct.image,
       price: singleProduct.price,
     };
+    console.log("prices ", cartData.price);
     return { ...state, cart: [...state.cart, cartData] };
   }
   if (action.type === "REMOVE_CART_ITEM") {
@@ -19,6 +20,13 @@ const CartReducer = (state, action) => {
     let newCart = state.cart.filter((item) => item.id !== id);
     return { ...state, cart: newCart };
   }
+  if (action.type === "CLEAR_CART_PRODUCT") {
+    return { ...state, cart: [] };
+  }
+  
+  // if(action.type === "GET_TOTALS"){
+    
+  // }
   return state;
 };
 export default CartReducer;

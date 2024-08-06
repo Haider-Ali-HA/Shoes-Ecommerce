@@ -10,16 +10,16 @@ const ProductQuantity = ({ amount, setAmount }) => {
   };
 
   return (
-    <div className="flex gap-5">
+    <div className="flex  gap-5">
       <span
-        className="hover:bg-gray-700 hover:text-white rounded-full p-1"
+        className="hover:bg-gray-700 hover:text-white  h-6 w-6 flex items-center justify-center rounded-full p-1"
         onClick={() => DecreaseQuantity()}
       >
         <FaMinus />
       </span>
       <span>{amount}</span>
       <span
-        className="hover:bg-gray-700 hover:text-white rounded-full p-1"
+        className="hover:bg-gray-700 hover:text-white h-6 w-6 flex items-center justify-center  rounded-full p-1"
         onClick={() => IncreaseQuantity()}
       >
         <FaPlus />
