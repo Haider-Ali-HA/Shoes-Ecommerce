@@ -9,30 +9,37 @@ import About from "./pages/About";
 import Cart from "./pages/Cart";
 import ErrorPage from "./pages/ErrorPage";
 import Footer from "./components/Footer";
-import UnderConstruction from "./components/UnderConstruction";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
-  const isUnderConstruction = false;
-
   return (
     <BrowserRouter>
-      {isUnderConstruction ? (
-        <UnderConstruction />
-      ) : (
-        <>
-          <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/products" element={<Products />} />
-            <Route path="/singleProducts/:id" element={<SingleProduct />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/cart" element={<Cart />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Routes>
-          <Footer />
-        </>
-      )}
+      <Navbar />
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+     
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/singleProducts/:id" element={<SingleProduct />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="*" element={<ErrorPage />} />
+      </Routes>
+      <Footer />
     </BrowserRouter>
   );
 };
