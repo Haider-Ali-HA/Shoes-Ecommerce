@@ -80,7 +80,7 @@ const ProductsData = [
       { id: 3, img: "/image/shoes3.jpg" },
     ],
     shipping: true,
-    stock: 15,
+    stock: 17,
     reviews: 220,
     stars: 4.9,
   },
