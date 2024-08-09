@@ -25,7 +25,7 @@ const CartItems = ({
         <div className="col-span-2  sm:ml-[10%] items-center flex   gap-4 ">
          
           <img
-            className="w-12 md:w-16 h-10 md:h-14  rounded"
+            className="w-12 md:w-20 h-10 md:h-14  rounded"
             src={image}
             alt={name}
             />

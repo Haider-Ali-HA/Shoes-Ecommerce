@@ -1,25 +1,25 @@
 const CartReducer = (state, action) => {
   if (action.type === "ADD_TO_CART") {
-    const { id, color, quantity: initialQuantity, singleProduct } = action.payload;
-    console.log("singleProduct ", singleProduct);
-    console.log("maximum stock ", singleProduct.stock);
+    const { id, color, quantity, singleProduct } = action.payload;
+    // console.log("singleProduct ", singleProduct);
+    // console.log("maximum stock ", singleProduct.stock);
 
-    // Calculate the total quantity of the product in the cart
-    const totalQuantityInCart = state.cart
-      .filter((item) => item.id.startsWith(id))
-      .reduce((total, item) => total + item.quantity, 0);
+    // // Calculate the total quantity of the product in the cart
+    // const totalQuantityInCart = state.cart
+    //   .filter((item) => item.id.startsWith(id))
+    //   .reduce((total, item) => total + item.quantity, 0);
 
-    let quantity = initialQuantity;
+    // let quantity = initialQuantity;
 
-    // Check if adding the new quantity exceeds the total stock
-    if (totalQuantityInCart + quantity > singleProduct.stock) {
-      // Adjust the quantity to not exceed the stock
-      const remainingStock = singleProduct.stock - totalQuantityInCart;
-      if (remainingStock <= 0) {
-        return state; // Do not add to cart if no stock is left
-      }
-      quantity = remainingStock; // Adjust quantity to remaining stock
-    }
+    // // Check if adding the new quantity exceeds the total stock
+    // if (totalQuantityInCart + quantity > singleProduct.stock) {
+    //   // Adjust the quantity to not exceed the stock
+    //   const remainingStock = singleProduct.stock - totalQuantityInCart;
+    //   if (remainingStock <= 0) {
+    //     return state; // Do not add to cart if no stock is left
+    //   }
+    //   quantity = remainingStock; // Adjust quantity to remaining stock
+    // }
 
     // Check if product is already in cart
     let existingProduct = state.cart.find((item) => item.id === id + color);
