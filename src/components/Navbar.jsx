@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import { CgClose, CgMenu } from "react-icons/cg";
 import { IoCartOutline } from "react-icons/io5";
 import { Link, useLocation } from "react-router-dom";
+import { useCartContext } from "../context/CartContext";
 const Navbar = () => {
+  const { total_items } = useCartContext();
   const [menu, setMenu] = useState(false);
   const [linkBorder, setLinkBorder] = useState("Home");
   const [color, setColor] = useState(false);
@@ -35,9 +37,12 @@ const Navbar = () => {
   const linkName = pathToLinkName[currentPath]; // Map path to link name
 
   useEffect(() => {
-    if (linkName) {
+   if (linkName) {
       setLinkBorder(linkName);
+    } else {
+      setLinkBorder(""); // Clear the border if the path is not in the object
     }
+ 
   }, [currentPath]); // Run this effect when the path changes
 
   return (
@@ -73,8 +78,8 @@ const Navbar = () => {
               <span>Home</span>
             </Link>
             <Link
-              to={"products"}
-               onClick={() => setMenu(false)}
+              to={"/products"}
+              onClick={() => setMenu(false)}
               className={
                 linkBorder === "Product"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -85,7 +90,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/about"}
-               onClick={() => setMenu(false)}
+              onClick={() => setMenu(false)}
               className={
                 linkBorder === "About"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -96,7 +101,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/contact"}
-               onClick={() => setMenu(false)}
+              onClick={() => setMenu(false)}
               className={
                 linkBorder === "Contact"
                   ? " cursor-pointer border-b-[.2rem] border-[#ff0000] "
@@ -114,11 +119,11 @@ const Navbar = () => {
               </button>
             </div>
             <div className="flex relative">
-            <Link to="/cart" className="cursor-pointer ">
-              <IoCartOutline className="text-2xl " />
-              <span className="bg-[#f03030] text-white absolute -top-4 left-4 rounded-full flex items-center justify-center text-base h-6 w-6">
-                1
-              </span>
+              <Link to="/cart" className="cursor-pointer ">
+                <IoCartOutline className="text-2xl " />
+                <span className="bg-[#f03030] text-white absolute -top-4 left-4 rounded-full flex items-center justify-center text-base h-6 w-6">
+                  {total_items}
+                </span>
               </Link>
             </div>
           </div>
@@ -157,7 +162,7 @@ const Navbar = () => {
               <span>Home</span>
             </Link>
             <Link
-              to={"products"}
+              to={"/products"}
               onClick={() => setMenu(false)}
               className={
                 linkBorder === "Product"
@@ -168,7 +173,7 @@ const Navbar = () => {
               Product
             </Link>
             <Link
-             onClick={() => setMenu(false)}
+              onClick={() => setMenu(false)}
               to={"/about"}
               className={
                 linkBorder === "About"
@@ -179,7 +184,7 @@ const Navbar = () => {
               About
             </Link>
             <Link
-             onClick={() => setMenu(false)}
+              onClick={() => setMenu(false)}
               to={"/contact"}
               className={
                 linkBorder === "Contact"
@@ -194,10 +199,10 @@ const Navbar = () => {
             </button>
             <div className="flex relative ">
               <Link to="/cart" className="cursor-pointer ">
-              <IoCartOutline className="text-2xl " />
-              <span className="bg-[#f03030] text-white absolute -top-4 left-4 rounded-full flex items-center justify-center text-base h-6 w-6">
-                10
-              </span>
+                <IoCartOutline className="text-2xl " />
+                <span className="bg-[#f03030] text-white absolute -top-4 left-4 rounded-full flex items-center justify-center text-base h-6 w-6">
+                  {total_items}
+                </span>
               </Link>
             </div>
           </div>

@@ -14,11 +14,8 @@ import { useCartContext } from "../context/CartContext";
 import ProductQuantity from "../components/ProductQuantity";
 
 const SingleProduct = () => {
-
-const {addToCart}=useCartContext();
-
-  const { getSingleProduct, isSingleLoading, singleProduct } =
-    useProductContext();
+  const { addToCart } = useCartContext();
+  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
   const { id } = useParams();
 
   // Active image index state
@@ -47,11 +44,11 @@ const {addToCart}=useCartContext();
   
   const [selectedProductColor, setSelectedProductColor] = useState("");
 
-  // increase or descrease the quantity
+  // increase or decrease the quantity
   const [quantity, setQuantity] = useState(1);
- 
+
   // Handle color click to set the active color
-  const handleColorClick = (index,colors) => {
+  const handleColorClick = (index, colors) => {
     setProductColorSelected(index); // Step 1: Update the active color index
     setSelectedProductColor(colors);
   };
@@ -64,12 +61,16 @@ const {addToCart}=useCartContext();
 
   useEffect(() => {
     getSingleProduct(id);
-  }, [id]);
+  }, [id, getSingleProduct]);
+
   useEffect(() => {
     if (image) {
       setSingleImage(image);
     }
   }, [image]);
+
+ 
+
   return (
     <div className="mt-20 ">
       <PaginationSingleProduct title={title} />
@@ -188,34 +189,34 @@ const {addToCart}=useCartContext();
                   <span className=" ml-2">{category}</span>
                 </p>
               </div>
-              {/* <hr className="w-full h-4" /> */}
               <div className="flex my-3  text-sm md:text-base">
                 <h3 className="font-semibold">Colors:</h3>
                 {color?.map((colors, index) => {
                   return (
                     <p
-                    key={index}
-                    className={`h-4 w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-2 
-                      
-                      `} // Apply conditional styling
+                      key={index}
+                      className={`h-4 w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold  hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-2 
+                      `}
                       style={{ backgroundColor: colors }}
-                      onClick={() => handleColorClick(index,colors)} // Update the click handler
-                      >
-                     
-                      {productColorSelected===index ? <IoIosCheckmark /> : ""}
+                      onClick={() => handleColorClick(index, colors)}
+                    >
+                      {productColorSelected === index ? <IoIosCheckmark /> : ""}
                     </p>
                   );
                 })}
               </div>
               <div className="flex items-center gap-3  text-sm md:text-base">
                 <h1 className="font-semibold">Quantity : </h1>
-               <ProductQuantity amount={quantity} setAmount={setQuantity} />
+                <ProductQuantity id={id} amount={quantity} setAmount={setQuantity} />
               </div>
               <div className="text-base font-semibold my-4">
                 <Link to="/cart">
-                <button onClick={()=>addToCart(id,selectedProductColor,quantity,singleProduct)} className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
-                  Add to Cart
-                </button>
+                  <button
+                    onClick={() => addToCart(id, selectedProductColor, quantity, singleProduct)}
+                    className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500"
+                  >
+                    Add to Cart
+                  </button>
                 </Link>
               </div>
             </div>

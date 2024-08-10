@@ -15,6 +15,7 @@ const CartItems = ({
   removeCartItem,
 }) => {
   const [itemQuantity, setItemQuantity] = useState(quantity);
+  
 
   return (
     <div className="flex  flex-col  ">
@@ -45,15 +46,15 @@ const CartItems = ({
           <CurrencyConvert price={price} />
         </h1>
         <h1 className=" mx-auto col-span-1 flex gap-3 justify-center text-xs sm:text-sm md:text-lg">
-          <ProductQuantity amount={itemQuantity} setAmount={setItemQuantity} />
+          <ProductQuantity id={id} amount={itemQuantity} setAmount={setItemQuantity} />
         </h1>
-        <h1 className="mx-auto col-span-1  hidden md:block text-lg">
+        <h1  className="mx-auto col-span-1  hidden md:block text-lg">
           {" "}
           <CurrencyConvert price={price * itemQuantity} />
         </h1>
         <h1
           onClick={() => removeCartItem(id)}
-          className=" mx-auto col-span-1  cursor-pointer text-base sm:text-xl md:text-2xl text-[#c90404]"
+          className=" mx-auto col-span-1  cursor-pointer text-base sm:text-xl md:text-2xl mt-1 sm:mt-0  text-[#c90404]"
         >
           <MdDelete />
         </h1>
