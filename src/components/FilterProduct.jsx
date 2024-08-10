@@ -70,10 +70,11 @@ const FilterProduct = () => {
           />
         </div>
       </div>
+
       {/* filter by category */}
-      <div className=" w-52 p-3 ">
-        <h1 className="font-bold text-lg  lg:text-2xl">Category</h1>
-        <ul>
+      <div className="w-52 p-3">
+        <h1 className="font-bold text-lg lg:text-2xl">Category</h1>
+        <ul className="hidden md:block">
           {filterCategoryData.map((item, index) => {
             return (
               <li key={index}>
@@ -81,10 +82,10 @@ const FilterProduct = () => {
                   type="button"
                   name="selectCategory"
                   value={item}
-                  className={` my-2 ${
+                  className={`my-2 ${
                     selectedCategory === item
                       ? "text-sm md:text-base border-b-2 text-[#ff4343] border-[#ff4343]"
-                      : "text-sm md:text-baseborder-b-2 border-white hover:text-[#ff4343]"
+                      : "text-sm md:text-base border-b-2 border-white hover:text-[#ff4343]"
                   }`}
                   onClick={(e) => handleCategoryClick(e, item)}
                 >
@@ -94,11 +95,22 @@ const FilterProduct = () => {
             );
           })}
         </ul>
+        <select
+          name="selectCategory"
+          className="block md:hidden my-3 border px-2 py-3 w-full"
+          onChange={(e) => handleCategoryClick(e, e.target.value)}
+        >
+          {filterCategoryData.map((item, index) => (
+            <option key={index} value={item}>
+              {item}
+            </option>
+          ))}
+        </select>
       </div>
 
       {/* filter by company */}
-      <div className="w-52 p-3 ">
-        <h1 className="font-bold text-lg  lg:text-2xl">Company</h1>
+      <div className="w-52 p-3">
+        <h1 className="font-bold text-lg lg:text-2xl">Company</h1>
         <select
           name="selectCompany"
           id="selectColor"
@@ -108,7 +120,7 @@ const FilterProduct = () => {
           {filterCompanyData.map((item, index) => {
             return (
               <option
-                className="text-sm md:text-baseborder my-2"
+                className="text-sm md:text-base  border my-2"
                 key={index}
                 name="selectCompany"
                 value={item}
@@ -120,10 +132,10 @@ const FilterProduct = () => {
         </select>
       </div>
 
-      {/* filter by Color  */}
-      <div className="w-52 p-3 ">
-        <h1 className="font-bold mb-3 text-lg  lg:text-2xl">Color</h1>
-        <div className="flex  ">
+      {/* filter by Color */}
+      <div className="w-52 p-3">
+        <h1 className="font-bold mb-3 text-lg lg:text-2xl">Color</h1>
+        <div className="flex">
           {filterColorData?.map((color, index) => {
             return color === "All" ? (
               <button
@@ -153,10 +165,10 @@ const FilterProduct = () => {
         </div>
       </div>
 
-      <div className="w-44 ">
+      <div className="w-44">
         <button
           onClick={() => ClearFilters()}
-          className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-full my-10  md:h-12 text-white transition-all duration-500"
+          className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-full my-10 md:h-12 text-white transition-all duration-500"
         >
           Clear All Filters
         </button>
