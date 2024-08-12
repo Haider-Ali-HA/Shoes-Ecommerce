@@ -12,7 +12,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const changeColor = () => {
-    if (window.scrollY >= 10) {
+    if (window.scrollY >= 5) {
       setColor(true);
     } else {
       setColor(false);
