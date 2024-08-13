@@ -42,7 +42,7 @@ const Cart = () => {
           onClick={() => clearCartProduct()}
           className="bg-[#000000] border  border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-44  md:h-12 text-white transition-all duration-500"
         >
-          Clear All Filters
+          Clear All Products
         </button>
         <div className="bg-gray-100 h-40 w-72 rounded-md p-4 flex flex-col justify-center gap-2">
           <h1 className="text-base md:text-xl font-bold ">ORDER SUMMARY</h1>

@@ -42,14 +42,22 @@ const FilterReducer = (state, action) => {
         filter: { ...state.filter, maxPrice, minPrice },
       };
     case "CLEAR_FILTERS":
-      let ClearData = [...state.filter_products];
-      ClearData = ClearData.filter((item) => {
-        return item;
-      })
-      return { ...state, all_products: ClearData };
+      return {
+        ...state,
+        filter: {
+          ...state.filter,
+          searchValue: "",
+          selectCategory: "All",
+          selectCompany: "All",
+          selectColor: "All",
+          minPrice: 0,
+          maxPrice: state.filter.maxPrice,
+          price: state.filter.maxPrice,
+        },
+      };
     case "FILTER_DATA":
       let tempProductsData = [...state.filter_products];
-      const { searchValue, selectCategory, selectCompany, selectColor ,price} =
+      const { searchValue, selectCategory, selectCompany, selectColor, price } =
         state.filter;
       if (searchValue) {
         tempProductsData = tempProductsData.filter((item) => {

@@ -20,11 +20,7 @@ const Navbar = () => {
   };
   window.addEventListener("scroll", changeColor);
 
-  const handleLinkClick = (linkName) => {
-    setLinkBorder(linkName);
-    setMenu(false); // Assuming you want to set it to false, not 'false' as a string
-  };
-
+ 
   const pathToLinkName = {
     "/": "Home",
     "/products": "Product",
@@ -110,14 +106,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            {/* <button className="bg-[#f03030] border border-[#f03030] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full w-24 h-10 text-white transition-all duration-500">
-              Login
-            </button> */}
-            <div className="text-base font-semibold my-4">
-              <button className="bg-[#f03030] border border-[#f03030]  text-sm md:text-base hover:bg-transparent hover:text-black hover:border-[#f03030]  rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500">
-                Login
-              </button>
-            </div>
+            
             <div className="flex relative">
               <Link to="/cart" className="cursor-pointer ">
                 <IoCartOutline className="text-2xl " />
@@ -194,9 +183,7 @@ const Navbar = () => {
             >
               Contact
             </Link>
-            <button className="bg-[#f03030] border border-[#f03030] hover:bg-transparent hover:text-black rounded-full w-24 h-10 text-white transition-all duration-500">
-              Login
-            </button>
+            
             <div className="flex relative ">
               <Link to="/cart" className="cursor-pointer ">
                 <IoCartOutline className="text-2xl " />
