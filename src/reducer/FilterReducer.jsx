@@ -80,14 +80,7 @@ const FilterReducer = (state, action) => {
           return item.company === selectCompany;
         });
       }
-      if (selectColor) {
-        tempProductsData = tempProductsData.filter((item) => {
-          if (selectColor === "All") {
-            return item;
-          }
-          return item.color.includes(selectColor);
-        });
-      }
+
       if (price) {
         tempProductsData = tempProductsData.filter((item) => {
           return item.price <= price;

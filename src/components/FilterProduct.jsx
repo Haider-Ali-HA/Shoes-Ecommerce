@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import { useFilterContext } from "../context/FilterContext";
-import { IoIosCheckmark } from "react-icons/io";
 import CurrencyConvert from "./CurrencyConvert";
 
 const FilterProduct = () => {
   const {
     updateFilterValue,
-    filter: { searchValue, selectColor, price, maxPrice, minPrice },
+    filter: { searchValue, price, maxPrice, minPrice },
     filter_products,
     ClearFilters,
   } = useFilterContext();
@@ -26,7 +25,6 @@ const FilterProduct = () => {
 
   const filterCategoryData = getUniqueValue(filter_products, "category");
   const filterCompanyData = getUniqueValue(filter_products, "company");
-  const filterColorData = getUniqueValue(filter_products, "color");
 
   const handleCategoryClick = (e, item) => {
     setSelectedCategory(item);
@@ -38,7 +36,7 @@ const FilterProduct = () => {
   };
 
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex flex-col items-center py-5">
       {/* filter by name in search field */}
       <div>
         <form onSubmit={(e) => handleSubmit(e)}>
@@ -51,24 +49,6 @@ const FilterProduct = () => {
             className="border p-2"
           />
         </form>
-      </div>
-
-      {/* filter by price */}
-      <div className="w-52 p-3">
-        <h1 className="font-bold text-lg  lg:text-2xl mb-1">Price</h1>
-        <div className="flex flex-col gap-3">
-          <span className="text-sm md:text-base">
-            <CurrencyConvert price={price} />
-          </span>
-          <input
-            type="range"
-            value={price}
-            name="price"
-            min={minPrice}
-            max={maxPrice}
-            onChange={(e) => updateFilterValue(e)}
-          />
-        </div>
       </div>
 
       {/* filter by category */}
@@ -132,36 +112,21 @@ const FilterProduct = () => {
         </select>
       </div>
 
-      {/* filter by Color */}
+      {/* filter by price */}
       <div className="w-52 p-3">
-        <h1 className="font-bold mb-3 text-lg lg:text-2xl">Color</h1>
-        <div className="flex">
-          {filterColorData?.map((color, index) => {
-            return color === "All" ? (
-              <button
-                name="selectColor"
-                value={color}
-                type="button"
-                onClick={(e) => handleCategoryClick(e)}
-                key={index}
-                className="text-sm md:text-base mx-1 hover:opacity-70 cursor-pointer"
-              >
-                All
-              </button>
-            ) : (
-              <button
-                name="selectColor"
-                value={color}
-                type="button"
-                onClick={(e) => handleCategoryClick(e, index)}
-                key={index}
-                className={`h-4 w-4 md:w-6 md:h-6 border shadow-2xl rounded-full font-bold hover:opacity-70 cursor-pointer flex items-center justify-center text-4xl text-white mx-1`}
-                style={{ backgroundColor: color }}
-              >
-                {color === selectColor ? <IoIosCheckmark /> : ""}
-              </button>
-            );
-          })}
+        <h1 className="font-bold text-lg  lg:text-2xl mb-1">Price</h1>
+        <div className="flex flex-col gap-3">
+          <span className="text-sm md:text-base">
+            <CurrencyConvert price={price} />
+          </span>
+          <input
+            type="range"
+            value={price}
+            name="price"
+            min={minPrice}
+            max={maxPrice}
+            onChange={(e) => updateFilterValue(e)}
+          />
         </div>
       </div>
 

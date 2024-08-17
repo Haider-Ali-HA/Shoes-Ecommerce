@@ -56,7 +56,7 @@ const FilterProvider = ({ children }) => {
         ...state,
         sortingProductData,
         updateFilterValue,
-        ClearFilters
+        ClearFilters,
       }}
     >
       {children}

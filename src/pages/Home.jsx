@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import Hero from "../common/Hero";
-import Services from "../components/Services";
 import TrustedCompanies from "../components/TrustedCompanies";
 import FeatureProducts from "../components/FeatureProducts";
 import Discount from "../components/Discount";
@@ -23,7 +22,7 @@ const Home = () => {
       />
 
       <FeatureProducts />
-      {/* <Services /> */}
+     
       <NewCollection />
       <Discount />
       <TrustedCompanies />

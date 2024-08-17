@@ -7,7 +7,7 @@ const SortProduct = () => {
   const length = all_products.length;
 
   return (
-    <div className=" flex items-center justify-between w-9/12  ">
+    <div className=" flex items-center justify-between w-9/12">
       <div className="font-semibold text-sm md:text-lg">
         <span className="mx-2 ">Total Products</span>
         {length}
