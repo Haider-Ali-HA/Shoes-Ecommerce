@@ -45,8 +45,6 @@ Start the server
 
 ## Screenshots
 ![Capture](https://github.com/Haider-Ali-HA/Shoes-Ecommerce/assets/112569777/9e8afacd-8d4e-4f0d-9538-eb183f3e7ce8)
-![Capture1](https://github.com/Haider-Ali-HA/Shoes-Ecommerce/assets/112569777/69e8084f-1d2e-4d70-aa2f-674ee22d8a0d)
-![Capture2](https://github.com/Haider-Ali-HA/Shoes-Ecommerce/assets/112569777/259528e8-f50e-41a5-ab45-82b6beb5522d)
 
 <!-- 
 ## Environment Variables
