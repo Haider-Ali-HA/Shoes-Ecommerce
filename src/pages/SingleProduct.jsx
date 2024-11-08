@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { GiReceiveMoney } from "react-icons/gi";
 import { MdSecurity } from "react-icons/md";
 import { RiSecurePaymentLine } from "react-icons/ri";
@@ -15,7 +15,8 @@ import ProductQuantity from "../components/ProductQuantity";
 
 const SingleProduct = () => {
   const { addToCart } = useCartContext();
-  const { getSingleProduct, isSingleLoading, singleProduct } = useProductContext();
+  const { getSingleProduct, isSingleLoading, singleProduct } =
+    useProductContext();
   const { id } = useParams();
 
   // Active image index state
@@ -41,11 +42,33 @@ const SingleProduct = () => {
 
   // Set the initial color index
   const [productColorSelected, setProductColorSelected] = useState();
-  
+
   const [selectedProductColor, setSelectedProductColor] = useState("");
 
   // increase or decrease the quantity
   const [quantity, setQuantity] = useState(1);
+
+  //set the image coordinates
+  const [imageZoomCoordinates, setImageZoomCoordinates] = useState({
+    x: 0,
+    y: 0,
+  });
+
+  const [isImageZoomed, setIsImageZoomed] = useState(false);
+
+  // Handle image zoom
+  const handleImageZoom = useCallback((e) => {
+    setIsImageZoomed(true);
+    const { left, top, width, height } = e.target.getBoundingClientRect();
+    const x = ((e.clientX - left) / width) * 100;
+    const y = ((e.clientY - top) / height) * 100;
+    setImageZoomCoordinates({ x, y });
+  },[imageZoomCoordinates]);
+
+  // Handle image zoom out
+  const handleImageZoomOut = () => {
+    setIsImageZoomed(false);
+  };
 
   // Handle color click to set the active color
   const handleColorClick = (index, colors) => {
@@ -68,8 +91,6 @@ const SingleProduct = () => {
       setSingleImage(image);
     }
   }, [image]);
-
- 
 
   return (
     <div className="mt-20 ">
@@ -100,12 +121,27 @@ const SingleProduct = () => {
                   );
                 })}
               </div>
-              <div className=" flex  items-center justify-center ">
-                <img
-                  className="w-5/6 sm:w-[29rem] shadow  "
-                  src={singleImage}
-                  alt=""
-                />
+              <div className="flex   items-center justify-center relative">
+                <div className=" flex items-center justify-center" onMouseMove={handleImageZoom} onMouseLeave={handleImageZoomOut}>
+                  <img
+                    className="w-5/6 sm:w-[29rem] shadow  "
+                    src={singleImage}
+                    alt=""
+                  />
+                </div>
+
+                {/* image zoom  */}
+                {isImageZoomed && (
+                <div className="hidden lg:block overflow-hidden absolute bg-red-400 min-h-[19.4rem] min-w-[29rem] -right-[30rem] ">
+                  <div
+                    className="min-h-[19.4rem] scale-150  min-w-[29rem] bg-no-repeat object-full "
+                    style={{
+                      backgroundImage: `url(${singleImage})`,
+                      backgroundPosition: `${imageZoomCoordinates.x}% ${imageZoomCoordinates.y}%`,
+                    }}
+                  ></div>
+                </div>
+              )}
               </div>
             </div>
             <div className="w-full lg:w-1/2 ">
@@ -207,12 +243,23 @@ const SingleProduct = () => {
               </div>
               <div className="flex items-center gap-3  text-sm md:text-base">
                 <h1 className="font-semibold">Quantity : </h1>
-                <ProductQuantity id={id} amount={quantity} setAmount={setQuantity} />
+                <ProductQuantity
+                  id={id}
+                  amount={quantity}
+                  setAmount={setQuantity}
+                />
               </div>
               <div className="text-base font-semibold my-4">
                 <Link to="/cart">
                   <button
-                    onClick={() => addToCart(id, selectedProductColor, quantity, singleProduct)}
+                    onClick={() =>
+                      addToCart(
+                        id,
+                        selectedProductColor,
+                        quantity,
+                        singleProduct
+                      )
+                    }
                     className="bg-[#000000] border border-[#000000] text-sm md:text-base hover:bg-transparent hover:text-black rounded-full h-10 w-24 md:w-32  md:h-12 text-white transition-all duration-500"
                   >
                     Add to Cart
