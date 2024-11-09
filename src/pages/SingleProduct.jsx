@@ -12,6 +12,8 @@ import { IoIosCheckmark } from "react-icons/io";
 import { FaMinus, FaPlus } from "react-icons/fa";
 import { useCartContext } from "../context/CartContext";
 import ProductQuantity from "../components/ProductQuantity";
+import ReactImageMagnify from "react-image-magnify";
+import ImageMagnify from "../components/ImageMagnify";
 
 const SingleProduct = () => {
   const { addToCart } = useCartContext();
@@ -57,13 +59,16 @@ const SingleProduct = () => {
   const [isImageZoomed, setIsImageZoomed] = useState(false);
 
   // Handle image zoom
-  const handleImageZoom = useCallback((e) => {
-    setIsImageZoomed(true);
-    const { left, top, width, height } = e.target.getBoundingClientRect();
-    const x = ((e.clientX - left) / width) * 100;
-    const y = ((e.clientY - top) / height) * 100;
-    setImageZoomCoordinates({ x, y });
-  },[imageZoomCoordinates]);
+  const handleImageZoom = useCallback(
+    (e) => {
+      setIsImageZoomed(true);
+      const { left, top, width, height } = e.target.getBoundingClientRect();
+      const x = ((e.clientX - left) / width) * 100;
+      const y = ((e.clientY - top) / height) * 100;
+      setImageZoomCoordinates({ x, y });
+    },
+    [imageZoomCoordinates]
+  );
 
   // Handle image zoom out
   const handleImageZoomOut = () => {
@@ -121,8 +126,14 @@ const SingleProduct = () => {
                   );
                 })}
               </div>
-              <div className="flex   items-center justify-center relative">
-                <div className=" flex items-center justify-center" onMouseMove={handleImageZoom} onMouseLeave={handleImageZoomOut}>
+
+              {/* main image with zoom image inside  */}
+              {/* <div className="flex   items-center justify-center relative">
+                <div
+                  className=" flex items-center justify-center"
+                  onMouseMove={handleImageZoom}
+                  onMouseLeave={handleImageZoomOut}
+                >
                   <img
                     className="w-5/6 sm:w-[29rem] shadow  "
                     src={singleImage}
@@ -130,18 +141,59 @@ const SingleProduct = () => {
                   />
                 </div>
 
-                {/* image zoom  */}
+              
                 {isImageZoomed && (
-                <div className="hidden lg:block overflow-hidden absolute bg-red-400 min-h-[19.4rem] min-w-[29rem] -right-[30rem] ">
-                  <div
-                    className="min-h-[19.4rem] scale-150  min-w-[29rem] bg-no-repeat object-full "
-                    style={{
-                      backgroundImage: `url(${singleImage})`,
-                      backgroundPosition: `${imageZoomCoordinates.x}% ${imageZoomCoordinates.y}%`,
-                    }}
-                  ></div>
+                  <div className="hidden lg:block overflow-hidden absolute bg-red-400 min-h-[19.4rem] min-w-[29rem] -right-[30rem] ">
+                    <div
+                      className="min-h-[19.4rem] scale-150  min-w-[29rem] bg-no-repeat object-full "
+                      style={{
+                        backgroundImage: `url(${singleImage})`,
+                        backgroundPosition: `${imageZoomCoordinates.x}% ${imageZoomCoordinates.y}%`,
+                      }}
+                    ></div>
+                  </div>
+                )}
+              </div> */}
+              {/* <div className="flex items-center justify-center relative">
+                <ReactImageMagnify
+                  {...{
+                    smallImage: {
+                      alt: `${title}`, // Alt text for accessibility
+                      isFluidWidth: true,
+                      src: singleImage, // Use singleImage for small image source
+                    },
+                    largeImage: {
+                      src: singleImage, // Use singleImage for large image source as well
+                      width: 800, // Adjusted width for large image
+                      height: 1200, // Adjusted height for large image
+                    },
+                    enlargedImageContainerDimensions: {
+                      width: "200%", // Fits the zoom view inside the container better
+                      height: "200%", // Adjust height as needed
+                    },
+                    enlargedImagePosition: "over", // Position the zoomed image overlay over the original
+                  }}
+                />
+              </div> */}
+              <div className="flex items-center justify-center relative">
+                <div className="hidden lg:block">
+                  <ImageMagnify 
+                    src={singleImage}
+                    width={800}
+                    height={800}
+                    magnifierHeight={300}
+                    magnifierWidth={300}
+                    zoomLevel={2}
+                    alt={title}
+                  />
                 </div>
-              )}
+                <div className=" lg:hidden flex items-center justify-center">
+                  <img
+                    src={singleImage}
+                    alt={title}
+                    className="w-5/6 sm:w-[29rem] shadow"
+                  />
+                </div>
               </div>
             </div>
             <div className="w-full lg:w-1/2 ">
