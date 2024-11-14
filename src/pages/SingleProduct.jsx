@@ -9,10 +9,8 @@ import PaginationSingleProduct from "../components/PaginationSingleProduct";
 import CurrencyConvert from "../components/CurrencyConvert";
 import Stars from "../components/Stars";
 import { IoIosCheckmark } from "react-icons/io";
-import { FaMinus, FaPlus } from "react-icons/fa";
 import { useCartContext } from "../context/CartContext";
 import ProductQuantity from "../components/ProductQuantity";
-import ReactImageMagnify from "react-image-magnify";
 import ImageMagnify from "../components/ImageMagnify";
 
 const SingleProduct = () => {
@@ -127,57 +125,9 @@ const SingleProduct = () => {
                 })}
               </div>
 
-              {/* main image with zoom image inside  */}
-              {/* <div className="flex   items-center justify-center relative">
-                <div
-                  className=" flex items-center justify-center"
-                  onMouseMove={handleImageZoom}
-                  onMouseLeave={handleImageZoomOut}
-                >
-                  <img
-                    className="w-5/6 sm:w-[29rem] shadow  "
-                    src={singleImage}
-                    alt=""
-                  />
-                </div>
-
-              
-                {isImageZoomed && (
-                  <div className="hidden lg:block overflow-hidden absolute bg-red-400 min-h-[19.4rem] min-w-[29rem] -right-[30rem] ">
-                    <div
-                      className="min-h-[19.4rem] scale-150  min-w-[29rem] bg-no-repeat object-full "
-                      style={{
-                        backgroundImage: `url(${singleImage})`,
-                        backgroundPosition: `${imageZoomCoordinates.x}% ${imageZoomCoordinates.y}%`,
-                      }}
-                    ></div>
-                  </div>
-                )}
-              </div> */}
-              {/* <div className="flex items-center justify-center relative">
-                <ReactImageMagnify
-                  {...{
-                    smallImage: {
-                      alt: `${title}`, // Alt text for accessibility
-                      isFluidWidth: true,
-                      src: singleImage, // Use singleImage for small image source
-                    },
-                    largeImage: {
-                      src: singleImage, // Use singleImage for large image source as well
-                      width: 800, // Adjusted width for large image
-                      height: 1200, // Adjusted height for large image
-                    },
-                    enlargedImageContainerDimensions: {
-                      width: "200%", // Fits the zoom view inside the container better
-                      height: "200%", // Adjust height as needed
-                    },
-                    enlargedImagePosition: "over", // Position the zoomed image overlay over the original
-                  }}
-                />
-              </div> */}
               <div className="flex items-center justify-center relative">
                 <div className="hidden lg:block">
-                  <ImageMagnify 
+                  <ImageMagnify
                     src={singleImage}
                     width={800}
                     height={800}
